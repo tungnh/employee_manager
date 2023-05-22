@@ -1,9 +1,9 @@
-package com.example.employee_manager_pr.model.serviceImpl;
+package com.example.employee_manager.model.serviceImpl;
 
-import com.example.employee_manager_pr.dto.request.RegisterRequest;
-import com.example.employee_manager_pr.model.entity.Employee;
-import com.example.employee_manager_pr.model.repository.EmployeeRepository;
-import com.example.employee_manager_pr.model.service.EmployeeService;
+import com.example.employee_manager.dto.request.RegisterRequest;
+import com.example.employee_manager.model.entity.Employee;
+import com.example.employee_manager.model.repository.EmployeeRepository;
+import com.example.employee_manager.model.service.EmployeeService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 

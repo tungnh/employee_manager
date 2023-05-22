@@ -1,7 +1,7 @@
-package com.example.employee_manager_pr.security;
+package com.example.employee_manager.security;
 
-import com.example.employee_manager_pr.model.entity.Employee;
-import com.example.employee_manager_pr.model.repository.EmployeeRepository;
+import com.example.employee_manager.model.entity.Employee;
+import com.example.employee_manager.model.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

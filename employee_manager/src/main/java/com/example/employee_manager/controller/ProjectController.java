@@ -1,4 +1,4 @@
-package com.example.employee_manager_pr.controller;
+package com.example.employee_manager.controller;
 
 public class ProjectController {
 }

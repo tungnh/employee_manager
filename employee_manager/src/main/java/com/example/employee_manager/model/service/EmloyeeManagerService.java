@@ -1,4 +1,4 @@
-package com.example.employee_manager_pr.model.service;
+package com.example.employee_manager.model.service;
 
 import java.util.List;
 

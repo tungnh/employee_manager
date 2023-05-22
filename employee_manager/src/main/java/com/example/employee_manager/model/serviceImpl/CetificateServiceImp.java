@@ -1,7 +1,7 @@
-package com.example.employee_manager_pr.model.serviceImpl;
+package com.example.employee_manager.model.serviceImpl;
 
-import com.example.employee_manager_pr.model.entity.Certificate;
-import com.example.employee_manager_pr.model.service.CertificateService;
+import com.example.employee_manager.model.entity.Certificate;
+import com.example.employee_manager.model.service.CertificateService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

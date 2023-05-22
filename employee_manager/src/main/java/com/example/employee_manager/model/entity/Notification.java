@@ -1,4 +1,4 @@
-package com.example.employee_manager_pr.model.entity;
+package com.example.employee_manager.model.entity;
 
 import javax.persistence.*;
 import java.util.Date;

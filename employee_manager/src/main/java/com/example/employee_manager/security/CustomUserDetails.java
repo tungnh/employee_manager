@@ -1,6 +1,6 @@
-package com.example.employee_manager_pr.security;
+package com.example.employee_manager.security;
 
-import com.example.employee_manager_pr.model.entity.Employee;
+import com.example.employee_manager.model.entity.Employee;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

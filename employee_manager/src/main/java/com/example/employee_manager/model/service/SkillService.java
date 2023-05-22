@@ -1,6 +1,6 @@
-package com.example.employee_manager_pr.model.service;
+package com.example.employee_manager.model.service;
 
-import com.example.employee_manager_pr.model.entity.Skill;
+import com.example.employee_manager.model.entity.Skill;
 
 public interface SkillService extends EmloyeeManagerService<Skill,Integer>{
 }

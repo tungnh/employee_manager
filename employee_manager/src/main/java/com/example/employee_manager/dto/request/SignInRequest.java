@@ -1,4 +1,4 @@
-package com.example.employee_manager_pr.dto.request;
+package com.example.employee_manager.dto.request;
 
 public class SignInRequest {
     private String userName;

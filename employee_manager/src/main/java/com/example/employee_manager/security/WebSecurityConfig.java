@@ -1,4 +1,4 @@
-package com.example.employee_manager_pr.security;
+package com.example.employee_manager.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/**","/home").permitAll()
+                .antMatchers("/**","/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

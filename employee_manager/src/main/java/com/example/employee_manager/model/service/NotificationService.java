@@ -1,6 +1,6 @@
-package com.example.employee_manager_pr.model.service;
+package com.example.employee_manager.model.service;
 
-import com.example.employee_manager_pr.model.entity.Notification;
+import com.example.employee_manager.model.entity.Notification;
 
 public interface NotificationService extends EmloyeeManagerService<Notification,Integer>{
 }

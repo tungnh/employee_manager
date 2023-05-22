@@ -1,7 +1,7 @@
-package com.example.employee_manager_pr.controller;
+package com.example.employee_manager.controller;
 
-import com.example.employee_manager_pr.dto.request.RegisterRequest;
-import com.example.employee_manager_pr.model.service.EmployeeService;
+import com.example.employee_manager.dto.request.RegisterRequest;
+import com.example.employee_manager.model.service.EmployeeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;

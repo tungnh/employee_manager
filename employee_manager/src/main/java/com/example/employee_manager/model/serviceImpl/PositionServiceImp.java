@@ -1,7 +1,7 @@
-package com.example.employee_manager_pr.model.serviceImpl;
+package com.example.employee_manager.model.serviceImpl;
 
-import com.example.employee_manager_pr.model.entity.Position;
-import com.example.employee_manager_pr.model.service.PositionService;
+import com.example.employee_manager.model.entity.Position;
+import com.example.employee_manager.model.service.PositionService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

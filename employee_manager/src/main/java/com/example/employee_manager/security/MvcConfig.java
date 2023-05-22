@@ -1,4 +1,4 @@
-package com.example.employee_manager_pr.security;
+package com.example.employee_manager.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

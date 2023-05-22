@@ -1,6 +1,6 @@
-package com.example.employee_manager_pr.model.service;
+package com.example.employee_manager.model.service;
 
-import com.example.employee_manager_pr.model.entity.Project;
+import com.example.employee_manager.model.entity.Project;
 
 public interface ProjectService extends EmloyeeManagerService<Project,Integer>{
 }

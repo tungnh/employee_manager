@@ -1,6 +1,6 @@
-package com.example.employee_manager_pr.model.service;
+package com.example.employee_manager.model.service;
 
-import com.example.employee_manager_pr.model.entity.Certificate;
+import com.example.employee_manager.model.entity.Certificate;
 
 public interface CertificateService extends EmloyeeManagerService<Certificate,Integer>{
 }

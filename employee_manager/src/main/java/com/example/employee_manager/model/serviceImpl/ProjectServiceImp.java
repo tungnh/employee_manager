@@ -1,7 +1,7 @@
-package com.example.employee_manager_pr.model.serviceImpl;
+package com.example.employee_manager.model.serviceImpl;
 
-import com.example.employee_manager_pr.model.entity.Project;
-import com.example.employee_manager_pr.model.service.ProjectService;
+import com.example.employee_manager.model.entity.Project;
+import com.example.employee_manager.model.service.ProjectService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

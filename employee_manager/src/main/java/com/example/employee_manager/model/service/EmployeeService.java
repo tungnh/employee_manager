@@ -1,7 +1,7 @@
-package com.example.employee_manager_pr.model.service;
+package com.example.employee_manager.model.service;
 
-import com.example.employee_manager_pr.dto.request.RegisterRequest;
-import com.example.employee_manager_pr.model.entity.Employee;
+import com.example.employee_manager.dto.request.RegisterRequest;
+import com.example.employee_manager.model.entity.Employee;
 
 public interface EmployeeService {
     Employee save(RegisterRequest registerRequest);
