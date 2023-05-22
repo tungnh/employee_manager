@@ -1,11 +1,14 @@
 package com.example.employee_manager.controller;
 
-import com.example.employee_manager.dto.request.RegisterRequest;
-import com.example.employee_manager.model.service.EmployeeService;
+import com.example.employee_manager.service.dto.request.RegisterRequest;
+import com.example.employee_manager.domain.Employee;
+import com.example.employee_manager.service.EmployeeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UserController {
@@ -15,19 +18,17 @@ public class UserController {
         this.employeeService = employeeService;
     }
 
-    @ModelAttribute("user")
-    public RegisterRequest registerRequest() {
-        return new RegisterRequest();
-    }
     @GetMapping("/register")
-    public String showRegisterForm() {
+    public String showRegisterForm(Model model) {
+        RegisterRequest employee = new RegisterRequest();
+        model.addAttribute("user", employee);
         return "register";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/register")
     public String registerUser(@ModelAttribute("user")RegisterRequest registerRequest) {
         employeeService.save(registerRequest);
-        return "redirect:/auth/register?success";
+        return "redirect:/register?success";
     }
 
     @GetMapping("/login")
