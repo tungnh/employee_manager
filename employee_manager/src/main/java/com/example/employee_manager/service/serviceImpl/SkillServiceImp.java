@@ -2,6 +2,7 @@ package com.example.employee_manager.service.serviceImpl;
 
 import com.example.employee_manager.domain.Skill;
 import com.example.employee_manager.service.SkillService;
+import com.example.employee_manager.service.dto.SkillDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +20,12 @@ public class SkillServiceImp implements SkillService {
     }
 
     @Override
-    public Skill saveOrUpdate(Skill skill) {
+    public Skill save(SkillDto skillDto) {
+        return null;
+    }
+
+    @Override
+    public Skill update(SkillDto skillDto) {
         return null;
     }
 

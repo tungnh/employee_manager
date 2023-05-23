@@ -1,0 +1,253 @@
+package com.example.employee_manager.service.dto;
+
+import java.time.LocalDate;
+import java.util.Date;
+
+public class EmployeeDto {
+    private String userName;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String citzenId;
+    private Date birthday;
+    private int sex;
+    private String nationality;
+    private String nation;
+    private String address;
+    private Date issuedOn;
+    private String issueBy;
+    private String phoneNumber;
+    private Date startWork;
+    private Date endWork;
+    private float coefficientsSalary;
+    private String education;
+    private String role;
+    private String accessToken;
+    private int status;
+    private String createdBy;
+    private Date createdDate;
+    private String lastModifiedBy;
+    private Date lastModifiedDate;
+
+    public EmployeeDto() {
+    }
+
+    public EmployeeDto(String userName, String firstName, String lastName, String email, String citzenId, Date birthday, int sex, String nationality, String nation, String address, Date issuedOn, String issueBy, String phoneNumber, Date startWork, Date endWork, float coefficientsSalary, String education, String role, String accessToken, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate) {
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.citzenId = citzenId;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.nationality = nationality;
+        this.nation = nation;
+        this.address = address;
+        this.issuedOn = issuedOn;
+        this.issueBy = issueBy;
+        this.phoneNumber = phoneNumber;
+        this.startWork = startWork;
+        this.endWork = endWork;
+        this.coefficientsSalary = coefficientsSalary;
+        this.education = education;
+        this.role = role;
+        this.accessToken = accessToken;
+        this.status = status;
+        this.createdBy = createdBy;
+        this.createdDate = createdDate;
+        this.lastModifiedBy = lastModifiedBy;
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCitzenId() {
+        return citzenId;
+    }
+
+    public void setCitzenId(String citzenId) {
+        this.citzenId = citzenId;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public String getNation() {
+        return nation;
+    }
+
+    public void setNation(String nation) {
+        this.nation = nation;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Date getIssuedOn() {
+        return issuedOn;
+    }
+
+    public void setIssuedOn(Date issuedOn) {
+        this.issuedOn = issuedOn;
+    }
+
+    public String getIssueBy() {
+        return issueBy;
+    }
+
+    public void setIssueBy(String issueBy) {
+        this.issueBy = issueBy;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Date getStartWork() {
+        return startWork;
+    }
+
+    public void setStartWork(Date startWork) {
+        this.startWork = startWork;
+    }
+
+    public Date getEndWork() {
+        return endWork;
+    }
+
+    public void setEndWork(Date endWork) {
+        this.endWork = endWork;
+    }
+
+    public float getCoefficientsSalary() {
+        return coefficientsSalary;
+    }
+
+    public void setCoefficientsSalary(float coefficientsSalary) {
+        this.coefficientsSalary = coefficientsSalary;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getCreatedDate(LocalDate now) {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+}
