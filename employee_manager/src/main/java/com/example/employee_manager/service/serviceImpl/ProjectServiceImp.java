@@ -2,7 +2,7 @@ package com.example.employee_manager.service.serviceImpl;
 
 import com.example.employee_manager.domain.Project;
 import com.example.employee_manager.service.ProjectService;
-import com.example.employee_manager.service.dto.ProjectDto;
+import com.example.employee_manager.service.dto.ProjectDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,12 +19,12 @@ public class ProjectServiceImp implements ProjectService {
     }
 
     @Override
-    public Project save(ProjectDto projectDto) {
+    public Project save(ProjectDTO projectDto) {
         return null;
     }
 
     @Override
-    public Project update(ProjectDto projectDto) {
+    public Project update(ProjectDTO projectDto) {
         return null;
     }
 

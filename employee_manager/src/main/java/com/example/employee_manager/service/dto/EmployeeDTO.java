@@ -3,7 +3,7 @@ package com.example.employee_manager.service.dto;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class EmployeeDto {
+public class EmployeeDTO {
     private String userName;
     private String firstName;
     private String lastName;
@@ -31,10 +31,10 @@ public class EmployeeDto {
     private String lastModifiedBy;
     private Date lastModifiedDate;
 
-    public EmployeeDto() {
+    public EmployeeDTO() {
     }
 
-    public EmployeeDto(String userName, String firstName, String lastName, String imgUrl, String email, String citzenId, Date birthday, int sex, String nationality, String nation, String address, Date issuedOn, String issueBy, String phoneNumber, Date startWork, Date endWork, float coefficientsSalary, String education, String role, String accessToken, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate) {
+    public EmployeeDTO(String userName, String firstName, String lastName, String imgUrl, String email, String citzenId, Date birthday, int sex, String nationality, String nation, String address, Date issuedOn, String issueBy, String phoneNumber, Date startWork, Date endWork, float coefficientsSalary, String education, String role, String accessToken, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;

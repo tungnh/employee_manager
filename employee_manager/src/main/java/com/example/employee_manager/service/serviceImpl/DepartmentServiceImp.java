@@ -2,7 +2,7 @@ package com.example.employee_manager.service.serviceImpl;
 
 import com.example.employee_manager.domain.Department;
 import com.example.employee_manager.service.DepartmentService;
-import com.example.employee_manager.service.dto.DepartmentDto;
+import com.example.employee_manager.service.dto.DepartmentDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,12 +19,12 @@ public class DepartmentServiceImp implements DepartmentService {
     }
 
     @Override
-    public Department save(DepartmentDto departmentDto) {
+    public Department save(DepartmentDTO departmentDto) {
         return null;
     }
 
     @Override
-    public Department update(DepartmentDto departmentDto) {
+    public Department update(DepartmentDTO departmentDto) {
         return null;
     }
 

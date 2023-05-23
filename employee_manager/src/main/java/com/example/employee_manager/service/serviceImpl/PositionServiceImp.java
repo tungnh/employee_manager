@@ -2,7 +2,7 @@ package com.example.employee_manager.service.serviceImpl;
 
 import com.example.employee_manager.domain.Position;
 import com.example.employee_manager.service.PositionService;
-import com.example.employee_manager.service.dto.PositionDto;
+import com.example.employee_manager.service.dto.PositionDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,12 +20,12 @@ public class PositionServiceImp implements PositionService {
     }
 
     @Override
-    public Position save(PositionDto positionDto) {
+    public Position save(PositionDTO positionDto) {
         return null;
     }
 
     @Override
-    public Position update(PositionDto positionDto) {
+    public Position update(PositionDTO positionDto) {
         return null;
     }
 

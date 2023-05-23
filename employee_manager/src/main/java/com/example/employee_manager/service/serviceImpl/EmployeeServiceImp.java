@@ -1,6 +1,6 @@
 package com.example.employee_manager.service.serviceImpl;
 
-import com.example.employee_manager.service.dto.EmployeeDto;
+import com.example.employee_manager.service.dto.EmployeeDTO;
 import com.example.employee_manager.domain.Employee;
 import com.example.employee_manager.repository.EmployeeRepository;
 import com.example.employee_manager.service.EmployeeService;
@@ -31,7 +31,7 @@ public class EmployeeServiceImp implements EmployeeService {
     }
 
     @Override
-    public Employee save(EmployeeDto register) {
+    public Employee save(EmployeeDTO register) {
         if (employeeRepository.existsByUserName(register.getUserName())) {
             throw new UsernameNotFoundException("Error: User is already");
         }
@@ -65,7 +65,7 @@ public class EmployeeServiceImp implements EmployeeService {
     }
 
     @Override
-    public Employee update(EmployeeDto employeeDto) {
+    public Employee update(EmployeeDTO employeeDto) {
         return null;
     }
 

@@ -1,4 +1,4 @@
 package com.example.employee_manager.service.dto;
 
-public class SkillDto {
+public class PositionDTO {
 }
