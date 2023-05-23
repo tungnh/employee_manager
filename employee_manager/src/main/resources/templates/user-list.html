@@ -284,15 +284,15 @@
                         <tr th:each="userList : ${user}">
                            <td class="text-center"><img class="rounded img-fluid avatar-40"
                                  src="../assets/images/user/01.jpg" alt="profile"></td>
-                           <td th:text="${userList.firstName} + ${userList.lastName}"></td>
+                           <td th:text="${userList.firstName } + ${userList.lastName}"></td>
                            <td th:text="${userList.phoneNumber}"></td>
                            <td th:text="${userList.email}"></td>
                            <td th:text="${userList.nation}"></td>
                            <td th:text="${userList.department}"></td>
                             <td th:text="${userList.position}"></td>
-                            <td th:text="${userList.status}"></td>
-                            <td><span class="badge bg-primary">Active</span></td>
-                           <td>
+                            <td th:if="${userList.status == 1}"><span class="badge bg-primary">Active</span></td>
+                            <td th:if="${userList.status == 0}"><span class="badge bg-danger">Block</span></td>
+                            <td>
                               <div class="flex align-items-center list-user-action">
                                  <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
                                     data-original-title="Profile" href="#"><i class="ri-user-add-line mr-0"></i></a>

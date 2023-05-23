@@ -59,7 +59,7 @@ public class EmployeeServiceImp implements EmployeeService {
         employee.setRole(register.getRole());
         employee.setAccessToken(register.getAccessToken());
         employee.setStatus(register.getStatus());
-        employee.setCreatedBy(employeeRepository.findByUserName(employee.getUserName()));
+        employee.setCreatedBy(employee.getUserName());
         employee.setCreatedDate(register.getCreatedDate(LocalDate.now()));
         return employeeRepository.save(employee);
     }
