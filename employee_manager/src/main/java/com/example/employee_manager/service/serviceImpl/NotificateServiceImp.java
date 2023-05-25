@@ -9,28 +9,5 @@ import java.util.List;
 
 @Service
 public class NotificateServiceImp implements NotificationService {
-    @Override
-    public List<Notification> findAll() {
-        return null;
-    }
 
-    @Override
-    public Notification findById(Integer id) {
-        return null;
-    }
-
-    @Override
-    public Notification save(NotificationDTO notificationDto) {
-        return null;
-    }
-
-    @Override
-    public Notification update(NotificationDTO notificationDto) {
-        return null;
-    }
-
-    @Override
-    public Notification delete(Integer id) {
-        return null;
-    }
 }

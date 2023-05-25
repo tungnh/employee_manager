@@ -1,36 +1,43 @@
 package com.example.employee_manager.service.serviceImpl;
 
 import com.example.employee_manager.domain.Position;
+import com.example.employee_manager.repository.PositionRepository;
 import com.example.employee_manager.service.PositionService;
 import com.example.employee_manager.service.dto.PositionDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.Optional;
+
 @Service
+@Transactional
 public class PositionServiceImp implements PositionService {
 
+
     @Override
-    public List<Position> findAll() {
+    public Page<PositionDTO> findAll(Pageable pageable) {
         return null;
     }
 
     @Override
-    public Position findById(Integer id) {
+    public Optional<PositionDTO> findOne(Integer id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public PositionDTO save(PositionDTO positionDTO) {
         return null;
     }
 
     @Override
-    public Position save(PositionDTO positionDto) {
+    public PositionDTO update(PositionDTO positionDTO) {
         return null;
     }
 
     @Override
-    public Position update(PositionDTO positionDto) {
-        return null;
-    }
+    public void delete(Integer id) {
 
-    @Override
-    public Position delete(Integer id) {
-        return null;
     }
 }
