@@ -21,13 +21,13 @@ public class UserController {
     public String showRegisterForm(Model model) {
         EmployeeDTO employee = new EmployeeDTO();
         model.addAttribute("user", employee);
-        return "register";
+        return "admin/user/user-add";
     }
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("user") EmployeeDTO register) {
         employeeService.save(register);
-        return "redirect:/register?success";
+        return "redirect:/admin/user/user-add?success";
     }
 
     @GetMapping("/login")
