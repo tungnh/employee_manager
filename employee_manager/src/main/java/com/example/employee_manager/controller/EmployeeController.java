@@ -14,10 +14,13 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/userList")
-    public ModelAndView showUserList() {
-        ModelAndView mav = new ModelAndView("user-list");
-        mav.addObject("user",employeeService.findAll());
-        return mav;
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/home")
+    public String home() {
+        return "index";
     }
 }
