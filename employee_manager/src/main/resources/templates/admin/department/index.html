@@ -1,18 +1,19 @@
-
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>User List</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="../assets/images/favicon.ico"/>
     <link rel="stylesheet" href="../assets/css/backend-plugin.min.css">
     <link rel="stylesheet" href="../assets/css/backend.css?v=1.0.0">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-    <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">  </head>
+    <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">
+</head>
 <body class="  ">
 <!-- loader Start -->
 <div id="loading">
@@ -23,9 +24,7 @@
 <!-- Wrapper Start -->
 <div class="wrapper">
 
-    <th:block th:replace="layout/navbar.html::navbarAd"/>
-    <th:block th:replace="layout/header.html::header"/>
-    <div class="content-page">
+    <div class="content-page" layout:fragment="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
@@ -42,7 +41,8 @@
                                         <div id="user_list_datatable_info" class="dataTables_filter">
                                             <form class="mr-3 position-relative">
                                                 <div class="form-group mb-0">
-                                                    <input type="search" class="form-control" id="exampleInputSearch" placeholder="Search"
+                                                    <input type="search" class="form-control" id="exampleInputSearch"
+                                                           placeholder="Search"
                                                            aria-controls="user-list-table">
                                                 </div>
                                             </form>
@@ -53,39 +53,52 @@
                                        aria-describedby="user-list-page-info">
                                     <thead>
                                     <tr class="ligth">
-                                        <th>Profile</th>
+                                        <th>Id</th>
                                         <th>Name</th>
-                                        <th>Contact</th>
-                                        <th>Email</th>
-                                        <th>Country</th>
-                                        <th>Department</th>
-                                        <th>Position</th>
+                                        <th>ParentId</th>
+                                        <td>LeaderId</td>
+                                        <td>SubLeaderId</td>
+                                        <th>Description</th>
+                                        <th>CreatedBy</th>
+                                        <th>CreatedDate</th>
+                                        <th>LastModifiedBy</th>
+                                        <th>LastModifiedDate</th>
                                         <th>Status</th>
                                         <th style="min-width: 100px">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="userList : ${null}">
-                                        <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                                                     src="../assets/images/user/01.jpg" alt="profile"></td>
-<!--                                        <td th:text="${userList.firstName } + ${userList.lastName}"></td>-->
-<!--                                        <td th:text="${userList.phoneNumber}"></td>-->
-<!--                                        <td th:text="${userList.email}"></td>-->
-<!--                                        <td th:text="${userList.nation}"></td>-->
-<!--                                        <td th:text="${userList.department}"></td>-->
-<!--                                        <td th:text="${userList.position}"></td>-->
-<!--                                        <td th:if="${userList.status == 1}"><span class="badge bg-primary">Active</span></td>-->
-<!--                                        <td th:if="${userList.status == 0}"><span class="badge bg-danger">Block</span></td>-->
-                                        <td>
-                                            <div class="flex align-items-center list-user-action">
-                                                <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                                   data-original-title="Profile" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                                <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                                   data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                                <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                                   data-original-title="Block" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                                            </div>
-                                        </td>
+                                    <tr>
+
+                                        <th:block th:each="department: ${departmentList}" th:object="${department}">
+                                            <td class="text-center"><img class="rounded img-fluid avatar-40"
+                                                                         src="../assets/images/user/01.jpg"
+                                                                         alt="profile"></td>
+                                            <td th:text="*{id}"></td>
+                                            <td th:text="*{name}"></td>
+                                            <td th:text="*{description}"></td>
+<!--                                            <td th:text="*{createdBy}"></td>-->
+<!--                                            <td th:text="*{createdDate}"></td>-->
+<!--                                            <td th:text="*{lastModifiedBy}"></td>-->
+<!--                                            <td th:text="*{lastModifiedDate}"></td>-->
+                                            <td th:if="*{status == 1}"><span class="badge bg-primary">Active</span></td>
+                                            <td th:if="*{status == 0}"><span class="badge bg-danger">Block</span></td>
+                                            <td>
+                                                <div class="flex align-items-center list-user-action">
+                                                    <a class="btn btn-sm bg-primary" data-toggle="tooltip"
+                                                       data-placement="top" title=""
+                                                       data-original-title="Profile" href="#"><i
+                                                            class="ri-user-add-line mr-0"></i></a>
+                                                    <a class="btn btn-sm bg-primary" data-toggle="tooltip"
+                                                       data-placement="top" title=""
+                                                       data-original-title="Edit" href="#"><i
+                                                            class="ri-pencil-line mr-0"></i></a>
+                                                    <a class="btn btn-sm bg-primary" data-toggle="tooltip"
+                                                       data-placement="top" title=""
+                                                       data-original-title="Block" href="#"><i
+                                                            class="ri-delete-bin-line mr-0"></i></a>
+                                                </div>
+                                            </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -118,25 +131,6 @@
     </div>
 </div>
 <!-- Wrapper End-->
-<footer class="iq-footer">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item"><a href="../backend/privacy-policy.html">Privacy Policy</a></li>
-                            <li class="list-inline-item"><a href="../backend/terms-of-service.html">Terms of Use</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6 text-right">
-                        <span class="mr-1"><script>document.write(new Date().getFullYear())</script>©</span> <a href="#" class="">POS Dash</a>.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 <!-- Backend Bundle JavaScript -->
 <script src="../assets/js/backend-bundle.min.js"></script>
 
