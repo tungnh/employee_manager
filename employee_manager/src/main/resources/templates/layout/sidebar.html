@@ -5,11 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-<div  th:fragment="sidebar">
-    <div class="iq-sidebar  sidebar-default ">
+    <div class="iq-sidebar sidebar-default" th:fragment="sidebar">
         <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
             <a th:href="@{/index}" class="header-logo">
-                <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo"><h5 class="logo-title light-logo ml-3">POSDash</h5>
+                <img src="/assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo"><h5 class="logo-title light-logo ml-3">POSDash</h5>
             </a>
             <div class="iq-menu-bt-sidebar ml-0">
                 <i class="las la-bars wrapper-menu"></i>
@@ -126,7 +125,7 @@
                 <div class="card border-none">
                     <div class="card-body p-0">
                         <div class="sidebarbottom-content">
-                            <div class="image"><img src="assets/images/layouts/side-bkg.png" class="img-fluid" alt="side-bkg"></div>
+                            <div class="image"><img src="/assets/images/layouts/side-bkg.png" class="img-fluid" alt="side-bkg"></div>
                             <h6 class="mt-4 px-4 body-title">Get More Feature by Upgrading</h6>
                             <button type="button" class="btn sidebar-bottom-btn mt-4">Go Premium</button>
                         </div>
@@ -136,7 +135,6 @@
             <div class="p-3"></div>
         </div>
     </div>
-</div>
 
 </body>
 </html>

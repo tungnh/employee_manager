@@ -26,16 +26,16 @@ public class PositionController {
         return mav;
     }
 
-    @GetMapping("add")
+    @GetMapping("/add")
     public String addCurrency(Model model) {
         model.addAttribute("currency", new PositionDTO());
         return "admin/position/add";
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public String createCurrency(@ModelAttribute PositionDTO positionDTO, Model model) {
         positionService.save(positionDTO);
         model.addAttribute("positionList", positionService.getAll());
-        return "admin/position/index";
+        return "redirect:/position/index";
     }
 }

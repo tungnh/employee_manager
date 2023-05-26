@@ -1,22 +1,14 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layout}">
+    layout:decorate="~{layout/layout}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>POS Dash | Responsive Bootstrap 4 Admin Dashboard Template</title>
+    <title>Employee | Danh sách chức vụ</title>
 
-
-<body class="  ">
- loader Start
-<div id="loading">
-    <div id="loading-center">
-    </div>
-</div>
- loader END
- Wrapper Start
-<div class="wrapper" layout:fragment="content">
-    <div class="content-page">
+<body>
+    <div class="content-page" layout:fragment="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -32,7 +24,8 @@
                                 <input type="text" class="text search-input" placeholder="Search here...">
                             </form>
                         </div>
-                        <a th:href="@{/position/add}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add
+                        <a th:href="@{/position/add}" class="btn btn-primary add-list"><i
+                                class="las la-plus mr-3"></i>Add
                             Product</a>
                     </div>
                 </div>
@@ -40,51 +33,43 @@
                     <div class="table-responsive rounded mb-3">
                         <table class="data-tables table mb-0 tbl-server-info">
                             <thead class="bg-white text-uppercase">
-                            <tr class="ligth ligth-data">
-                                <!--                            <th>-->
-                                <!--                                <div class="checkbox d-inline-block">-->
-                                <!--                                    <input type="checkbox" class="checkbox-input" id="checkbox1">-->
-                                <!--                                    <label for="checkbox1" class="mb-0"></label>-->
-                                <!--                                </div>-->
-                                <!--                            </th>-->
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>CreatedBy</th>
-                                <th>CreatedDate</th>
-                                <th>LastModifiedBy</th>
-                                <th>LastModifiedDate</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
+                                <tr class="ligth ligth-data">
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>CreatedBy</th>
+                                    <th>CreatedDate</th>
+                                    <th>LastModifiedBy</th>
+                                    <th>LastModifiedDate</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
                             </thead>
                             <tbody class="ligth-body">
-                            <th:block th:each="pos: ${positionList}" th:object="${pos}">
-
-                                <td th:text="*{id}"></td>
-                                <td th:text="*{name}"></td>
-                                <td th:text="*{description}"></td>
-                                <td th:text="*{createdBy}"></td>
-                                <td th:text="*{createdDate}"></td>
-                                <td th:text="*{lastModifiedBy}"></td>
-                                <td th:text="*{lastModifiedDate}"></td>
-                                <td th:if="*{status == 1}"><span class="badge bg-primary">Active</span></td>
-                                <td th:if="*{status == 0}"><span class="badge bg-danger">Block</span></td>
-                                <td>
-                                    <div class="d-flex align-items-center list-action">
-                                        <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
-                                           title="" data-original-title="View"
-                                           href="#"><i class="ri-eye-line mr-0"></i></a>
-                                        <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
-                                           title="" data-original-title="Edit"
-                                           href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                        <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
-                                           title="" data-original-title="Delete"
-                                           href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                                    </div>
-                                </td>
-                            </th:block>
-
+                                <tr th:each="pos: ${positionList}" th:object="${pos}">
+                                    <td th:text="*{id}"></td>
+                                    <td th:text="*{name}"></td>
+                                    <td th:text="*{description}"></td>
+                                    <td th:text="*{createdBy}"></td>
+                                    <td th:text="*{createdDate}"></td>
+                                    <td th:text="*{lastModifiedBy}"></td>
+                                    <td th:text="*{lastModifiedDate}"></td>
+                                    <td th:if="*{status == 1}"><span class="badge bg-primary">Active</span></td>
+                                    <td th:if="*{status == 0}"><span class="badge bg-danger">Block</span></td>
+                                    <td>
+                                        <div class="d-flex align-items-center list-action">
+                                            <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="View" href="#"><i
+                                                    class="ri-eye-line mr-0"></i></a>
+                                            <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="Edit" href="#"><i
+                                                    class="ri-pencil-line mr-0"></i></a>
+                                            <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
+                                                title="" data-original-title="Delete" href="#"><i
+                                                    class="ri-delete-bin-line mr-0"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -92,11 +77,7 @@
             </div>
             <!-- Page end  -->
         </div>
-        <!-- Modal Edit -->
     </div>
-</div>
-<!-- Wrapper End-->
-<!-- Backend Bundle JavaScript -->
-
 </body>
+
 </html>

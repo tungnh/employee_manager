@@ -15,6 +15,7 @@ public class PositionMapper implements EntityMapper<PositionDTO, Position> {
             return null;
         }
         Position position = new Position();
+        position.setId(dto.getId());
         position.setName(dto.getName());
         position.setDescription(dto.getDescription());
         position.setStatus(dto.getStatus());
@@ -30,10 +31,17 @@ public class PositionMapper implements EntityMapper<PositionDTO, Position> {
         if (entity == null) {
             return null;
         }
+
         PositionDTO positionDTO = new PositionDTO();
+        positionDTO.setId(entity.getId());
         positionDTO.setName(entity.getName());
         positionDTO.setDescription(entity.getDescription());
-        return null;
+        positionDTO.setStatus(entity.getStatus());
+        positionDTO.setCreatedBy(entity.getCreatedBy());
+        positionDTO.setCreatedDate(entity.getCreatedDate());
+        positionDTO.setLastModifiedBy(entity.getLastModifiedBy());
+        positionDTO.setLastModifiedDate(entity.getLastModifiedDate());
+        return positionDTO;
     }
 
     @Override
@@ -63,5 +71,4 @@ public class PositionMapper implements EntityMapper<PositionDTO, Position> {
     @Override
     public void partialUpdate(Position entity, PositionDTO dto) {
     }
-
 }
