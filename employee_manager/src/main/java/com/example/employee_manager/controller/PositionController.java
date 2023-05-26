@@ -20,21 +20,34 @@ public class PositionController {
     }
 
     @GetMapping("/index")
-    public ModelAndView showUserList() {
+    public ModelAndView getAll() {
         ModelAndView mav = new ModelAndView("admin/position/index");
         mav.addObject("positionList", positionService.getAll());
         return mav;
     }
 
     @GetMapping("/add")
-    public String addCurrency(Model model) {
-        model.addAttribute("currency", new PositionDTO());
+    public String add(Model model) {
+        model.addAttribute("position", new PositionDTO());
         return "admin/position/add";
     }
 
     @PostMapping("/add")
-    public String createCurrency(@ModelAttribute PositionDTO positionDTO, Model model) {
+    public String create(@ModelAttribute PositionDTO positionDTO, Model model) {
         positionService.save(positionDTO);
+        model.addAttribute("positionList", positionService.getAll());
+        return "redirect:/position/index";
+    }
+    
+    @GetMapping("/update/{id}")
+    public String edit(Model model) {
+        model.addAttribute("position", new PositionDTO());
+        return "admin/position/update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update(@ModelAttribute PositionDTO positionDTO, Model model) {
+        positionService.update(positionDTO);
         model.addAttribute("positionList", positionService.getAll());
         return "redirect:/position/index";
     }
