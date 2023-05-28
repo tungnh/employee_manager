@@ -13,4 +13,5 @@ public interface DepartmentService  {
     DepartmentDTO save(DepartmentDTO departmentDTO);
     DepartmentDTO update(DepartmentDTO departmentDTO);
     void delete(int id);
+    List<DepartmentDTO> searchByName(String name);
 }

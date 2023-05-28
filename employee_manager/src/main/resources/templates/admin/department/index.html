@@ -21,9 +21,9 @@
                         </div>
                         <div class="iq-search-bar device-search">
                             <form th:action="@{department/search}" method="get" class="searchbox">
-                                <button type="submit" class="search-link" href="#"><i class="ri-search-line"></i></button>
+                                <a type="submit" class="search-link" href="#"><i class="ri-search-line"></i></a>
                                 <input type="text" class="text search-input" placeholder="Search here...">
-
+                                <button type="submit" >search</button>
                             </form>
                         </div>
                         <a th:href="@{/department/add}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -58,6 +59,13 @@ public class DepartmentController {
     public String updateWallet(@ModelAttribute DepartmentDTO departmentDTO, Model model) {
         departmentService.update(departmentDTO);
         model.addAttribute("departmentList", departmentService.getAll());
+        return "admin/department/index";
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("name") String name,Model model){
+        List<DepartmentDTO> departmentDTOList = departmentService.searchByName(name);
+        model.addAttribute("departmentList",departmentDTOList);
         return "admin/department/index";
     }
 }

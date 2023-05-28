@@ -56,4 +56,9 @@ public class DepartmentServiceImp implements DepartmentService {
     public void delete(int id) {
         departmentRepository.deleteById(id);
     }
+
+    @Override
+    public List<DepartmentDTO> searchByName(String name) {
+        return departmentMapper.toDto(departmentRepository.findByNameContaining(name));
+    }
 }
