@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Employee manager | Thêm mới chức vụ</title>
+    <title>Employee manager | Thêm mới Phòng Ban </title>
 </head>
 <body>
 <div class="content-page" layout:fragment="content">
@@ -18,13 +18,37 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form data-toggle="validator" th:action="@{/position/add}" method="post" role="form" th:object="${position}">
+                        <form data-toggle="validator"  method="post" role="form" >
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name1">Name *</label>
                                         <input type="text" name="name" class="form-control" placeholder="Enter Name"
                                                data-errors="Please Enter Name." required id="name1" th:field="*{name}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="parder">Parent Id *</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Name"
+                                               data-errors="Please Enter Name." required id="parder" th:field="*{name}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="leader">Leader Id *</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Name"
+                                               data-errors="Please Enter Name." required id="leader" th:field="*{name}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="subLeader">Sub Leader *</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Name"
+                                               data-errors="Please Enter Name." required id="subLeader" th:field="*{name}">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
