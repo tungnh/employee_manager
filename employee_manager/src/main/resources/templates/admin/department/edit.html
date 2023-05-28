@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title"> + Edit Position</h4>
+                            <h4 class="card-title"> + Edit Department</h4>
                         </div>
                     </div>
                     <div class="card-body">
@@ -32,10 +32,10 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="Parent">Parent *</label>
+                                        <label for="parent">Parent *</label>
                                         <input type="text" name="description" class="form-control"
                                                placeholder="Enter Description"
-                                               data-errors="Please Enter Code." required  id="Parent"  th:value="*{parentId}">
+                                               data-errors="Please Enter Code." required  id="parent"  th:value="*{parentId}">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -68,8 +68,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Status *</label>
-                                        <select id="name" name="sex" th:field="*{status}" class="select picker form-control" data-style="py-0">
+                                        <label for="status">Status *</label>
+                                        <select id="status" name="sex" th:field="*{status}" class="select picker form-control" data-style="py-0">
                                             <option value="1">Active</option>
                                             <option value="0">Block</option>
                                         </select>
