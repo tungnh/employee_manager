@@ -18,13 +18,13 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form data-toggle="validator"  method="post" role="form" >
+                        <form data-toggle="validator" th:action="@{/department/add}" method="post" role="form" >
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name1">Name *</label>
                                         <input type="text" name="name" class="form-control" placeholder="Enter Name"
-                                               data-errors="Please Enter Name." required id="name1" th:field="*{name}">
+                                               data-errors="Please Enter Name." required id="name1" th:field="*{}">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -32,7 +32,7 @@
                                     <div class="form-group">
                                         <label for="parder">Parent Id *</label>
                                         <input type="text" name="name" class="form-control" placeholder="Enter Name"
-                                               data-errors="Please Enter Name." required id="parder" th:field="*{name}">
+                                               data-errors="Please Enter Name." required id="parder" th:field="*{}">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -69,37 +69,7 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="createBy1">Create By *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Create by"
-                                               data-errors="Please Enter Cost." required id="createBy1" th:field="*{createdBy}">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="createdDate1">Create Date *</label>
-                                        <input type="text" class="form-control" placeholder="Enter date"
-                                               data-errors="Please Enter Price." id="createdDate1" required th:field="*{createdDate}">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="lastModifiedBy1">Last modified by *</label>
-                                        <input name="type" class="selectpicker form-control" data-style="py-0"  id="lastModifiedBy1" placeholder="Enter..." th:field="*{lastModifiedBy}">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="lastModifiedDate1" >Last modified date *</label>
-                                        <input type="text" class="form-control" placeholder="Enter..."
-                                               required id="lastModifiedDate1" th:field="*{lastModifiedDate}">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
                             </div>
                             <button type="submit" class="btn btn-danger"> Add ...</button>
                         </form>
