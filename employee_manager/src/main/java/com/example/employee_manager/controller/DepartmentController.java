@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/department")
 public class DepartmentController {
@@ -41,6 +43,22 @@ public class DepartmentController {
         return "admin/department/index";
     }
 
+    @GetMapping("update/{id}")
+    public String edit(@PathVariable int id, Model model) {
+        Optional<DepartmentDTO> departmentDTO = departmentService.findById(id);
+        if (departmentDTO.isPresent()) {
+            DepartmentDTO departmentDTO1 = departmentDTO.get();
+            model.addAttribute("department", departmentDTO1);
+            return "admin/department/edit";
+        }
+        return "admin/department/index";
+    }
 
-
+    @PostMapping("update")
+    public String updateWallet(@ModelAttribute DepartmentDTO departmentDTO, Model model) {
+        departmentService.update(departmentDTO);
+        model.addAttribute("departmentList", departmentService.getAll());
+        model.addAttribute("department", departmentDTO);
+        return "admin/department/index";
+    }
 }
