@@ -27,14 +27,7 @@ public class DepartmentServiceImp implements DepartmentService {
 
     @Override
     public Optional<DepartmentDTO> findById(int id) {
-        Optional<Department> departmentOptional = departmentRepository.findById(id);
-        if (departmentOptional.isPresent()) {
-            Department department = departmentOptional.get();
-            DepartmentDTO departmentDTO = departmentMapper.toDto(department);
-            return Optional.of(departmentDTO);
-        } else {
-            return Optional.empty();
-        }
+     return departmentRepository.findById(id).map(departmentMapper::toDto);
     }
 
     @Override
@@ -52,7 +45,11 @@ public class DepartmentServiceImp implements DepartmentService {
 
     @Override
     public DepartmentDTO update(DepartmentDTO departmentDTO) {
-        return null;
+        Department department =departmentMapper.toEntity(departmentDTO);
+        department.setId(department.getId());
+        departmentRepository.save(department);
+        DepartmentDTO departmentDTO1 = departmentMapper.toDto(department);
+        return departmentDTO1;
     }
 
     @Override
