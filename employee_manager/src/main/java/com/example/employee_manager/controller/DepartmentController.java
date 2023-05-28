@@ -58,7 +58,6 @@ public class DepartmentController {
     public String updateWallet(@ModelAttribute DepartmentDTO departmentDTO, Model model) {
         departmentService.update(departmentDTO);
         model.addAttribute("departmentList", departmentService.getAll());
-        model.addAttribute("department", departmentDTO);
         return "admin/department/index";
     }
 }
