@@ -30,7 +30,7 @@ public class DepartmentController {
 
     @GetMapping("/add")
     public String Add(Model model){
-        model.addAttribute("departmentList",departmentService.getAll());
+        model.addAttribute("department",departmentService.getAll());
         return "admin/department/add";
     }
 

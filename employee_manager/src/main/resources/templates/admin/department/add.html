@@ -18,21 +18,21 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form data-toggle="validator" th:action="@{/department/add}" method="post" role="form" >
+                        <form data-toggle="validator" th:action="@{/department/add}" method="post" role="form" th:object="${department}" >
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name1">Name *</label>
                                         <input type="text" name="name" class="form-control" placeholder="Enter Name"
-                                               data-errors="Please Enter Name." required id="name1" th:field="*{}">
+                                               data-errors="Please Enter Name." required id="name1" th:value="*{}">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="parder">Parent Id *</label>
+                                        <label for="parent">Parent Id *</label>
                                         <input type="text" name="name" class="form-control" placeholder="Enter Name"
-                                               data-errors="Please Enter Name." required id="parder" th:field="*{}">
+                                               data-errors="Please Enter Name." required id="parent" th:field="*{}">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
