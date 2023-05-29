@@ -55,7 +55,6 @@ Index Of Script
         Fixed Nav
         -----------------------------------------------------------------------*/
 
-
   $(window).on("scroll", function () {
     if ($(window).scrollTop() > 0) {
       $(".iq-top-navbar").addClass("fixed");

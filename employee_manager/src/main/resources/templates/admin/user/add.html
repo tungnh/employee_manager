@@ -5,14 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Create User</title>
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
-    <link rel="stylesheet" href="/assets/css/backend-plugin.min.css">
-    <link rel="stylesheet" href="/assets/css/backend.css?v=1.0.0">
-    <link rel="stylesheet" href="/assets/vendor/fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-    <link rel="stylesheet" href="/assets/vendor/remixicon/fonts/remixicon.css">
 </head>
 <body class="  ">
 <!-- Wrapper Start -->
@@ -174,61 +166,5 @@
     </div>
 </div>
 <!-- Wrapper End-->
-
-<!-- Backend Bundle JavaScript -->
-<<<<<<< HEAD
-<script src="/assets/js/backend-bundle.min.js"></script>
-
-<!-- Table Treeview JavaScript -->
-<script src="/assets/js/table-treeview.js"></script>
-
-<!-- Chart Custom JavaScript -->
-<script src="/assets/js/customizer.js"></script>
-
-<!-- Chart Custom JavaScript -->
-<script async src="/assets/js/chart-custom.js"></script>
-
-<!-- app JavaScript -->
-<script src="/assets/js/app.js"></script>
-
-<script>
-    function formatDateString() {
-        var dateInput = document.getElementsByClassName("dateInput");
-        var dateValue = dateInput.value;
-        var formattedDate = formatDate(dateValue);
-        document.getElementById("valueBirthday").value = formattedDate;
-    }
-
-    function formatDate(dateString) {
-        var date = new Date(dateString);
-        var day = date.getDate();
-        if (day < 10) {
-            day = "0" + day;
-        }
-        var month = date.getMonth() + 1;
-        if (month < 10) {
-            month = "0" + month;
-        }
-        var year = date.getFullYear();
-
-        return day + "/" + month + "/" + year;
-    }
-</script>
-
-=======
-<script src="../assets/js/backend-bundle.min.js"></script>
-
-<!-- Table Treeview JavaScript -->
-<script src="../assets/js/table-treeview.js"></script>
-
-<!-- Chart Custom JavaScript -->
-<script src="../assets/js/customizer.js"></script>
-
-<!-- Chart Custom JavaScript -->
-<script async src="../assets/js/chart-custom.js"></script>
-
-<!-- app JavaScript -->
-<script src="../assets/js/app.js"></script>
->>>>>>> develop
 </body>
 </html>
