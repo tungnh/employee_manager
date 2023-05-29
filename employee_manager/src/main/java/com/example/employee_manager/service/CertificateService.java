@@ -1,7 +1,7 @@
 package com.example.employee_manager.service;
 
 import com.example.employee_manager.domain.Certificate;
-import com.example.employee_manager.service.dto.CetificateDTO;
+import com.example.employee_manager.service.dto.CertificateDTO;
 
-public interface CertificateService extends EmloyeeManagerService<Certificate, CetificateDTO,Integer>{
+public interface CertificateService {
 }

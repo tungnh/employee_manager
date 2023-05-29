@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Create User</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
+    <link rel="stylesheet" href="/assets/css/backend-plugin.min.css">
+    <link rel="stylesheet" href="/assets/css/backend.css?v=1.0.0">
+    <link rel="stylesheet" href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/assets/vendor/remixicon/fonts/remixicon.css">
+</head>
+<body class="  ">
+<!-- Wrapper Start -->
+<div class="wrapper" layout:fragment="content">
+    <div class="content-page">
+        <div class="container-fluid add-form-list">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="header-title">
+                                <h4 class="card-title">Add Users</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/employee/add}" method="post" th:object="${user}">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="userName">User Name:</label>
+                                            <input th:field="*{userName}" type="text" class="form-control" id="userName" placeholder="User Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="firstName">First Name:</label>
+                                            <input th:field="*{firstName}" type="text" class="form-control" id="firstName" placeholder="First Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="lastName">Last Name:</label>
+                                            <input th:field="*{lastName}" type="text" class="form-control" id="lastName" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="email">Email:</label>
+                                            <input th:field="*{email}" type="text" class="form-control" id="email"
+                                                   placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="phoneNumber">Phone Number:</label>
+                                            <input th:field="*{phoneNumber}" type="text" class="form-control" id="phoneNumber"
+                                                   placeholder="Phone Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="citzenId">Citizen ID:</label>
+                                            <input th:field="*{citizenId}" type="text" class="form-control" id="citzenId"
+                                                   placeholder="Citizen ID">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="birthday">BirthDay:</label>
+                                            <input th:field="*{birthday}" type="text" class="form-control dateInput" id="birthday"
+                                                   placeholder="dd//mm/yyyy" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="sex">Sex:</label>
+                                            <select id="sex" name="sex" th:field="*{sex}" class="select picker form-control" data-style="py-0">
+                                                <option value="0">Female</option>
+                                                <option value="1">Male</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="nationality">Nationality:</label>
+                                            <input th:field="*{nationality}" type="text" class="form-control" id="nationality"
+                                                   placeholder="Nationality">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="nation">Nation:</label>
+                                            <input th:field="*{nation}" type="text" class="form-control" id="nation"
+                                                   placeholder="Nation">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="issuedOn">Issued On:</label>
+                                            <input th:field="*{issuedOn}" type="text" class="form-control dateInput" id="issuedOn"
+                                                   placeholder="dd/mm/yyyy">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="issueBy">Issued By:</label>
+                                            <input th:field="*{issueBy}" type="text" class="form-control" id="issueBy"
+                                                   placeholder="Issued By">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="startWork">Start Work:</label>
+                                            <input th:field="*{startWork}" type="text" class="form-control dateInput" id="startWork"
+                                                   placeholder="dd/mm/yyyy">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="endWork">End Work:</label>
+                                            <input th:field="*{endWork}" type="text" class="form-control dateInput" id="endWork"
+                                                   placeholder="dd/mm/yyyy">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="coefficientsSalary">Coefficients Salary:</label>
+                                            <input th:field="*{coefficientsSalary}" type="number" step="0.01" class="form-control" id="coefficientsSalary"
+                                                   placeholder="Coefficients Salary">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="education">Education:</label>
+                                            <input th:field="*{education}" type="text" class="form-control" id="education"
+                                                   placeholder="Education">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="address">Address:</label>
+                                            <input th:field="*{address}" type="text" class="form-control" id="address"
+                                                   placeholder="Address">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="role">Role:</label>
+                                            <select id="role" name="sex" th:field="*{role}" class="select picker form-control" data-style="py-0">
+                                                <option value="ADMIN">ADMIN</option>
+                                                <option value="USER">USER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary mr-2">Create User</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Page end  -->
+        </div>
+    </div>
+
+</div>
+<!-- Wrapper End-->
+
+<!-- Backend Bundle JavaScript -->
+<script src="/assets/js/backend-bundle.min.js"></script>
+
+<!-- Table Treeview JavaScript -->
+<script src="/assets/js/table-treeview.js"></script>
+
+<!-- Chart Custom JavaScript -->
+<script src="/assets/js/customizer.js"></script>
+
+<!-- Chart Custom JavaScript -->
+<script async src="/assets/js/chart-custom.js"></script>
+
+<!-- app JavaScript -->
+<script src="/assets/js/app.js"></script>
+
+<script>
+    function formatDateString() {
+        var dateInput = document.getElementsByClassName("dateInput");
+        var dateValue = dateInput.value;
+        var formattedDate = formatDate(dateValue);
+        document.getElementById("valueBirthday").value = formattedDate;
+    }
+
+    function formatDate(dateString) {
+        var date = new Date(dateString);
+        var day = date.getDate();
+        if (day < 10) {
+            day = "0" + day;
+        }
+        var month = date.getMonth() + 1;
+        if (month < 10) {
+            month = "0" + month;
+        }
+        var year = date.getFullYear();
+
+        return day + "/" + month + "/" + year;
+    }
+</script>
+
+</body>
+</html>
