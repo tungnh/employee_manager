@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>User List</title>
+</head>
+<body class="  ">
+<!-- Wrapper Start -->
+<div class="wrapper" layout:fragment="content">
+    <div class="content-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+                            <h4 class="card-title">User List</h4>
+                            <a th:href="@{/employee/add}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add User</a>
+                    </div>
+                    <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="row justify-content-between">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div id="user_list_datatable_info" class="dataTables_filter">
+                                            <form class="mr-3 position-relative">
+                                                <div class="form-group mb-0">
+                                                    <input type="search" class="form-control" id="exampleInputSearch"
+                                                           placeholder="Search"
+                                                           aria-controls="user-list-table">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="data-table table mb-0 tbl-server-info">
+                                    <thead class="bg-white text-uppercase">
+                                    <tr class="ligth ligth-data">
+                                        <th>Profile</th>
+                                        <th>Name</th>
+                                        <th>Contact</th>
+                                        <th>Email</th>
+                                        <th>Country</th>
+                                        <th>Status</th>
+                                        <th style="min-width: 100px">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="ligth-body">
+                                    <tr th:each="user : ${userList}">
+                                        <td class="text-center">
+                                            <div class="d-flex align-items-center">
+                                                <img src="/assets/images/table/product/01.jpg" class="img-fluid rounded avatar-50 mr-3" alt="image">
+                                                <div>
+                                                    Organic Cream
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td th:text="${user.firstName} + ' ' + ${user.lastName}"></td>
+                                        <td th:text="${user.phoneNumber}"></td>
+                                        <td th:text="${user.email}"></td>
+                                        <td th:text="${user.nation}"></td>
+                                        <td th:if="${user.status == 0}"><span class="badge bg-primary">Active</span>
+                                        </td>
+                                        <td th:if="${user.status == 1}"><span class="badge bg-danger">Block</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center list-action">
+                                                <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"
+                                                   th:href="@{/employee/profile/{id}(id=${user.id})}"><i class="ri-eye-line mr-0"></i></a>
+                                                <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"
+                                                   th:href="@{/employee/edit/{id}(id=${user.id})}"><i class="ri-pencil-line mr-0"></i></a>
+                                                <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"
+                                                   th:href="@{/employee/delete(id=${user.id})}"><i class="ri-delete-bin-line mr-0"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row justify-content-between mt-3">
+                                <div id="user-list-page-info" class="col-md-6">
+                                    <span>Showing 1 to 5 of 5 entries</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination justify-content-end mb-0">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                            </li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Wrapper End-->
+</body>
+</html>

@@ -1,16 +1,16 @@
 package com.example.employee_manager.service.dto;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class EmployeeDTO {
+    private int id;
     private String userName;
     private String firstName;
     private String lastName;
     private String imgUrl;
-
+    private String password;
     private String email;
-    private String citzenId;
+    private String citizenId;
     private Date birthday;
     private int sex;
     private String nationality;
@@ -34,13 +34,15 @@ public class EmployeeDTO {
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(String userName, String firstName, String lastName, String imgUrl, String email, String citzenId, Date birthday, int sex, String nationality, String nation, String address, Date issuedOn, String issueBy, String phoneNumber, Date startWork, Date endWork, float coefficientsSalary, String education, String role, String accessToken, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate) {
+    public EmployeeDTO(int id, String userName, String firstName, String lastName, String imgUrl, String password, String email, String citizenId, Date birthday, int sex, String nationality, String nation, String address, Date issuedOn, String issueBy, String phoneNumber, Date startWork, Date endWork, float coefficientsSalary, String education, String role, String accessToken, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate) {
+        this.id = id;
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.imgUrl = imgUrl;
+        this.password = password;
         this.email = email;
-        this.citzenId = citzenId;
+        this.citizenId = citizenId;
         this.birthday = birthday;
         this.sex = sex;
         this.nationality = nationality;
@@ -60,6 +62,14 @@ public class EmployeeDTO {
         this.createdDate = createdDate;
         this.lastModifiedBy = lastModifiedBy;
         this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -94,6 +104,14 @@ public class EmployeeDTO {
         this.imgUrl = imgUrl;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -102,12 +120,12 @@ public class EmployeeDTO {
         this.email = email;
     }
 
-    public String getCitzenId() {
-        return citzenId;
+    public String getCitizenId() {
+        return citizenId;
     }
 
-    public void setCitzenId(String citzenId) {
-        this.citzenId = citzenId;
+    public void setCitizenId(String citizenId) {
+        this.citizenId = citizenId;
     }
 
     public Date getBirthday() {
@@ -238,7 +256,7 @@ public class EmployeeDTO {
         this.createdBy = createdBy;
     }
 
-    public Date getCreatedDate(LocalDate now) {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
