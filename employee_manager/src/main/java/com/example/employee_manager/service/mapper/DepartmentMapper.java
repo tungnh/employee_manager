@@ -15,6 +15,7 @@ public class DepartmentMapper implements EntityMapper<DepartmentDTO, Department>
             return null;
         }
         Department department = new Department();
+        department.setId(dto.getId());
         department.setName(dto.getName());
         department.setLeaderId(dto.getLeaderId());
         department.setParentId(dto.getParentId());
@@ -37,6 +38,11 @@ public class DepartmentMapper implements EntityMapper<DepartmentDTO, Department>
         departmentDTO.setParentId(entity.getParentId());
         departmentDTO.setSubLeaderId(entity.getSubLeaderId());
         departmentDTO.setDescription(entity.getDescription());
+        departmentDTO.setStatus(entity.getStatus());
+        departmentDTO.setCreatedBy(entity.getCreatedBy());
+        departmentDTO.setCreatedDate(entity.getCreatedDate());
+        departmentDTO.setLastModifiedBy(entity.getLastModifiedBy());
+        departmentDTO.setLastModifiedDate(entity.getLastModifiedDate());
         return departmentDTO;
     }
 
