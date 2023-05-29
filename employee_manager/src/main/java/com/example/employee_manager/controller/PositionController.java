@@ -64,7 +64,6 @@ public class PositionController {
         return "admin/position/index";
     }
 
-
     @GetMapping("/search")
     public String searchUsers(@RequestParam("name") String name, Model model) {
         List<PositionDTO> positionDTOList = positionService.searchByName(name);
