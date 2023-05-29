@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Employee | Danh sách chức vụ</title>
+    <title>Employee | Danh sách phòng ban</title>
 
 <body>
 <div class="content-page" layout:fragment="content">
@@ -19,13 +19,10 @@
                             <p class="mb-0">Sales enables you to effectively control sales KPIs and                       <br>
                                 place while helping teams to reach sales goals. </p>
                         </div>
-                        <div class="iq-search-bar device-search">
-                            <form th:action="@{department/search}" method="get" class="searchbox">
-                                <a type="submit" class="search-link" href="#"><i class="ri-search-line"></i></a>
-                                <input type="text" class="text search-input" placeholder="Search here...">
-                                <button type="submit" >search</button>
-                            </form>
-                        </div>
+                        <form th:action="@{/department/search}" method="get">
+                            <input class="text search-input" type="text" name="name" placeholder="search here...">
+                            <input class="btn btn-primary add-list" type="submit" value="Search">
+                        </form>
                         <a th:href="@{/department/add}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add
                             Position</a>
                     </div>
