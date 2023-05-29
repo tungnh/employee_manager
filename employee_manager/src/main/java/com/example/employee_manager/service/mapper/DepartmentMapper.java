@@ -15,6 +15,7 @@ public class DepartmentMapper implements EntityMapper<DepartmentDTO, Department>
             return null;
         }
         Department department = new Department();
+        department.setId(dto.getId());
         department.setName(dto.getName());
         department.setLeaderId(dto.getLeaderId());
         department.setParentId(dto.getParentId());
