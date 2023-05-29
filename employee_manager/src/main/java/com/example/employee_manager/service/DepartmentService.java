@@ -4,6 +4,7 @@ import com.example.employee_manager.domain.Department;
 import com.example.employee_manager.service.dto.DepartmentDTO;
 import com.example.employee_manager.service.dto.PositionDTO;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -13,4 +14,5 @@ public interface DepartmentService  {
     DepartmentDTO save(DepartmentDTO departmentDTO);
     DepartmentDTO update(DepartmentDTO departmentDTO);
     void delete(int id);
+
 }

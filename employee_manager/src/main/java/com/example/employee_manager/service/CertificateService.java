@@ -1,16 +1,15 @@
 package com.example.employee_manager.service;
 
-import com.example.employee_manager.domain.Certificate;
-import com.example.employee_manager.service.dto.CetificateDTO;
-import com.example.employee_manager.service.dto.DepartmentDTO;
+import com.example.employee_manager.service.dto.CertificateDTO;
+
 
 import java.util.List;
 import java.util.Optional;
 
 public interface CertificateService {
-    Optional<CetificateDTO> findById(int id);
-    List<CetificateDTO> getAll();
-    CetificateDTO save(CetificateDTO cetificateDTO);
-    CetificateDTO update(CetificateDTO cetificateDTO);
+    Optional<CertificateDTO> findById(int id);
+    List<CertificateDTO> getAll();
+    CertificateDTO save(CertificateDTO certificateDTO);
+    CertificateDTO update(CertificateDTO certificateDTO);
     void delete(int id);
 }

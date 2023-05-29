@@ -1,17 +1,15 @@
 package com.example.employee_manager.service.mapper;
 
 import com.example.employee_manager.domain.Certificate;
-import com.example.employee_manager.domain.Department;
-import com.example.employee_manager.service.dto.CetificateDTO;
-import com.example.employee_manager.service.dto.DepartmentDTO;
+import com.example.employee_manager.service.dto.CertificateDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 @Component
-public class CertificateMapper implements EntityMapper<CetificateDTO, Certificate>{
+public class CertificateMapper implements EntityMapper<CertificateDTO, Certificate>{
     @Override
-    public Certificate toEntity(CetificateDTO dto) {
+    public Certificate toEntity(CertificateDTO dto) {
         if (dto == null) {
             return null;
         }
@@ -31,12 +29,12 @@ public class CertificateMapper implements EntityMapper<CetificateDTO, Certificat
     }
 
     @Override
-    public CetificateDTO toDto(Certificate entity) {
+    public CertificateDTO toDto(Certificate entity) {
         if (entity == null) {
             return null;
         }
 
-        CetificateDTO cetificateDTO = new CetificateDTO();
+        CertificateDTO cetificateDTO = new CertificateDTO();
         cetificateDTO.setId(entity.getId());
         cetificateDTO.setName(entity.getName());
         cetificateDTO.setDescription(entity.getDescription());
@@ -47,23 +45,23 @@ public class CertificateMapper implements EntityMapper<CetificateDTO, Certificat
     }
 
     @Override
-    public List<Certificate> toEntity(List<CetificateDTO> dtoList) {
+    public List<Certificate> toEntity(List<CertificateDTO> dtoList) {
         if (dtoList.isEmpty()) {
             return null;
         }
         List<Certificate> certificateList = new ArrayList<>(dtoList.size());
-        for (CetificateDTO cetificateDTO : dtoList) {
+        for (CertificateDTO cetificateDTO : dtoList) {
             certificateList.add(toEntity(cetificateDTO));
         }
         return certificateList;
     }
 
     @Override
-    public List<CetificateDTO> toDto(List<Certificate> entityList) {
+    public List<CertificateDTO> toDto(List<Certificate> entityList) {
         if (entityList == null) {
             return null;
         }
-        List<CetificateDTO> cetificateDTOList = new ArrayList<>(entityList.size());
+        List<CertificateDTO> cetificateDTOList = new ArrayList<>(entityList.size());
         for (Certificate certificate : entityList) {
             cetificateDTOList.add(toDto(certificate));
         }
@@ -71,7 +69,7 @@ public class CertificateMapper implements EntityMapper<CetificateDTO, Certificat
     }
 
     @Override
-    public void partialUpdate(Certificate entity, CetificateDTO dto) {
+    public void partialUpdate(Certificate entity, CertificateDTO dto) {
 
     }
 }
