@@ -23,7 +23,6 @@ import java.util.Optional;
 @Service
 @Transactional
 public class PositionServiceImpl implements PositionService {
-
     public final PositionRepository positionRepository;
     public final PositionMapper positionMapper;
     public final EmployeeRepository employeeRepository;
@@ -33,8 +32,6 @@ public class PositionServiceImpl implements PositionService {
         this.positionMapper = positionMapper;
         this.employeeRepository = employeeRepository;
     }
-
-
     @Override
     public Optional<PositionDTO> findById(int id) {
         return positionRepository.findById(id).map(positionMapper::toDto);
@@ -44,7 +41,6 @@ public class PositionServiceImpl implements PositionService {
     public List<PositionDTO> getAll() {
         return positionMapper.toDto(positionRepository.findAll());
     }
-
     @Override
     public PositionDTO save(PositionDTO positionDto) {
         Position position = positionMapper.toEntity(positionDto);
@@ -101,4 +97,3 @@ public class PositionServiceImpl implements PositionService {
         return positionMapper.toDto(positionRepository.findAll(pageable).getContent());
     }
 }
-

@@ -15,7 +15,6 @@ import java.util.Optional;
 @RequestMapping("/position")
 public class PositionController {
     private final PositionService positionService;
-
     public PositionController(PositionService positionService) {
         this.positionService = positionService;
     }

@@ -13,7 +13,6 @@ import com.example.employee_manager.service.dto.PositionDTO;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
 public interface PositionService {
     Optional<PositionDTO> findById(int id);
     List<PositionDTO> getAll();
