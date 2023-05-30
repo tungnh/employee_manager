@@ -6,6 +6,7 @@ import com.example.employee_manager.service.dto.DepartmentDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 @RequestMapping("/department")
 public class DepartmentController {
     private final DepartmentService departmentService;
+
     public DepartmentController(DepartmentService departmentService) {
         this.departmentService = departmentService;
     }
@@ -24,22 +26,22 @@ public class DepartmentController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id,Model model){
+    public String delete(@PathVariable int id, Model model) {
         departmentService.delete(id);
-        model.addAttribute("departmentList",departmentService.getAll());
+        model.addAttribute("departmentList", departmentService.getAll());
         return "admin/department/index";
     }
 
     @GetMapping("/add")
-    public String add(Model model){
-        model.addAttribute("department",new DepartmentDTO());
+    public String add(Model model) {
+        model.addAttribute("department", new DepartmentDTO());
         return "admin/department/add";
     }
 
     @PostMapping("/add")
-    public String addDepartment(@ModelAttribute DepartmentDTO departmentDTO,Model model){
+    public String addDepartment(@ModelAttribute DepartmentDTO departmentDTO, Model model) {
         departmentService.save(departmentDTO);
-        model.addAttribute("departmentList",departmentService.getAll());
+        model.addAttribute("departmentList", departmentService.getAll());
         return "admin/department/index";
     }
 
@@ -62,9 +64,9 @@ public class DepartmentController {
     }
 
     @GetMapping("/search")
-    public String search(@RequestParam("name") String name,Model model){
+    public String search(@RequestParam("name") String name, Model model) {
         List<DepartmentDTO> departmentDTOList = departmentService.searchByName(name);
-        model.addAttribute("departmentList",departmentDTOList);
+        model.addAttribute("departmentList", departmentDTOList);
         return "admin/department/index";
     }
 }
