@@ -35,7 +35,7 @@ public class PositionController {
         return "admin/position/index";
     }
 
-   @GetMapping("update/{id}")
+    @GetMapping("update/{id}")
     public String edit(@PathVariable int id, Model model) {
         Optional<PositionDTO> positionDTO1 = positionService.findById(id);
         if (positionDTO1.isPresent()) {
