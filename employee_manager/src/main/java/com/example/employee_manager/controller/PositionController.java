@@ -5,10 +5,7 @@ import com.example.employee_manager.service.dto.PositionDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -55,7 +52,6 @@ public class PositionController {
         model.addAttribute("positionList", positionService.getAll());
         return "admin/position/index";
     }
-
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id, Model model) {
         positionService.delete(id);

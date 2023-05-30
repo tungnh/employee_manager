@@ -32,6 +32,7 @@ public class PositionServiceImpl implements PositionService {
         this.positionMapper = positionMapper;
         this.employeeRepository = employeeRepository;
     }
+
     @Override
     public Optional<PositionDTO> findById(int id) {
         return positionRepository.findById(id).map(positionMapper::toDto);
@@ -41,6 +42,7 @@ public class PositionServiceImpl implements PositionService {
     public List<PositionDTO> getAll() {
         return positionMapper.toDto(positionRepository.findAll());
     }
+
     @Override
     public PositionDTO save(PositionDTO positionDto) {
         Position position = positionMapper.toEntity(positionDto);
@@ -60,7 +62,6 @@ public class PositionServiceImpl implements PositionService {
 
     @Override
     public PositionDTO update(PositionDTO positionDto) {
-
         Position position = positionMapper.toEntity(positionDto);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication.getPrincipal() instanceof UserDetails) {
@@ -85,7 +86,6 @@ public class PositionServiceImpl implements PositionService {
 
     @Override
     public List<PositionDTO> searchByName(String name) {
-
         return positionMapper.toDto(positionRepository.findByNameContaining(name));
     }
 

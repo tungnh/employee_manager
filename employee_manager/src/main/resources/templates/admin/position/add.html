@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,7 +18,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form data-toggle="validator" th:action="@{/position/add}" method="post" role="form" th:object="${position}">
+                        <form data-toggle="validator" th:action="@{/position/add}" method="post" role="form"
+                              th:object="${position}">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -33,22 +34,23 @@
                                         <label for="description1">Description *</label>
                                         <input type="text" name="description" class="form-control"
                                                placeholder="Enter Description"
-                                               data-errors="Please Enter Code." required id="description1" th:field="*{description}">
+                                               data-errors="Please Enter Code." required id="description1"
+                                               th:field="*{description}">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="sex">Status *</label>
-                                        <select id="sex" name="sex" th:field="*{status}" class="select picker form-control" data-style="py-0">
+                                        <select id="sex" name="sex" th:field="*{status}"
+                                                class="select picker form-control" data-style="py-0">
                                             <option value="1">Active</option>
                                             <option value="0">Block</option>
                                         </select>
                                     </div>
                                 </div>
-
                             </div>
-                                      <button type="submit" class="btn btn-danger"> Add ...</button>
+                            <button type="submit" class="btn btn-danger"> Add ...</button>
                         </form>
                     </div>
                 </div>
