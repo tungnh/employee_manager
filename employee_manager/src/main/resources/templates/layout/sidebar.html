@@ -5,7 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-
 <div class="iq-sidebar sidebar-default" th:fragment="sidebar">
     <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
         <a th:href="@{/index}" class="header-logo">
@@ -50,12 +49,12 @@
                     </a>
                     <ul id="product" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                         <li class="">
-                            <a href="/templates/admin/page-add-product.html">
+                            <a th:href="@{/department/index}">
                                 <i class="las la-minus"></i><span>List Department</span>
                             </a>
                         </li>
                         <li class="">
-                            <a href="/templates/admin/page-add-product.html">
+                            <a th:href="@{/department/add}">
                                 <i class="las la-minus"></i><span>Add Department</span>
                             </a>
                         </li>
