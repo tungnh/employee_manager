@@ -1,38 +1,33 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{layout/layout}">
-
+      layout:decorate="~{layout/layout}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Employee | Danh sách chức vụ</title>
-
 <body>
-    <div class="content-page" layout:fragment="content">
+<div class="content-page" layout:fragment="content">
+    <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                         <div>
                             <h4 class="mb-3">Position List</h4>
-                            <p class="mb-0">The product list effectively dictates product presentation and provides
-                                space<br> to list your products and offering in the most appealing way.</p>
+                            <p class="mb-0">Sales enables you to effectively control sales KPIs and <br>
+                                place while helping teams to reach sales goals. </p>
                         </div>
-                        <div class="iq-search-bar device-search">
-                            <form action="#" class="searchbox">
-                                <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                                <input type="text" class="text search-input" placeholder="Search here...">
-                            </form>
-                        </div>
-                        <a th:href="@{/position/add}" class="btn btn-primary add-list"><i
-                                class="las la-plus mr-3"></i>Add
-                            Product</a>
+                        <form th:action="@{/position/search}" method="get">
+                            <input class="text search-input" type="text" name="name" placeholder="search here...">
+                            <input class="btn btn-primary add-list" type="submit" value="Search">
+                        </form>
+                        <a th:href="@{/position/add}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add
+                            Position</a>
                     </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="table-responsive rounded mb-3">
-                        <table class="data-tables table mb-0 tbl-server-info">
-                            <thead class="bg-white text-uppercase">
+                    <div class="col-lg-12">
+                        <div class="table-responsive rounded mb-3">
+                            <table class="data-table table mb-0 tbl-server-info">
+                                <thead class="bg-white text-uppercase">
                                 <tr class="ligth ligth-data">
                                     <th>Id</th>
                                     <th>Name</th>
@@ -44,8 +39,8 @@
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
-                            </thead>
-                            <tbody class="ligth-body">
+                                </thead>
+                                <tbody class="ligth-body">
                                 <tr th:each="pos: ${positionList}" th:object="${pos}">
                                     <td th:text="*{id}"></td>
                                     <td th:text="*{name}"></td>
@@ -55,29 +50,50 @@
                                     <td th:text="*{lastModifiedBy}"></td>
                                     <td th:text="*{lastModifiedDate}"></td>
                                     <td th:if="*{status == 1}"><span class="badge bg-primary">Active</span></td>
-                                    <td th:if="*{status == 0}"><span class="badge bg-danger">Block</span></td>
+                                    <td th:if="*{status == 0}"><span class="badge bg-danger">Block</span>
                                     <td>
                                         <div class="d-flex align-items-center list-action">
-                                            <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top"
-                                                title="" data-original-title="View" href="#"><i
-                                                    class="ri-eye-line mr-0"></i></a>
-                                            <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
-                                                title="" data-original-title="Edit" href="#"><i
-                                                    class="ri-pencil-line mr-0"></i></a>
-                                            <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
-                                                title="" data-original-title="Delete" href="#"><i
-                                                    class="ri-delete-bin-line mr-0"></i></a>
+                                            <a th:href="@{/position/update/{id}(id=${pos.id})}"
+                                               class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
+                                               title=""
+                                               data-original-title="Edit"
+                                               href="#"><i class="ri-pencil-line mr-0"></i></a>
+                                            <a th:href="@{/position/delete/{id}(id=${pos.id})}"
+                                               class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
+                                               title=""
+                                               data-original-title="Delete"
+                                               href="#"><i class="ri-delete-bin-line mr-0"></i></a>
                                         </div>
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between mt-3">
+                        <div id="user-list-page-info" class="col-md-6">
+                            <span>Showing 1 to 5 of 5 entries</span>
+                        </div>
+                        <div class="col-md-6">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-end mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Page end  -->
         </div>
     </div>
+</div>
 </body>
-
 </html>

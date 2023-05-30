@@ -70,6 +70,4 @@ public class EmployeeController {
     public String login() {
         return "login";
     }
-
-
 }

@@ -35,10 +35,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.csrf().disable()
+                .authorizeRequests()
                 .antMatchers("/login","/assets/**").permitAll()
                 .antMatchers("/employee/index","/position/..").authenticated()
                 .anyRequest().authenticated()
