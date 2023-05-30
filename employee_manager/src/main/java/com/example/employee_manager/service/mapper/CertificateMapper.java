@@ -24,6 +24,7 @@ public class CertificateMapper implements EntityMapper<CertificateDTO, Certifica
         certificate.setCreatedDate(dto.getCreatedDate());
         certificate.setLastModifiedBy(dto.getLastModifiedBy());
         certificate.setLastModifiedDate(dto.getLastModifiedDate());
+        certificate.setEmployee(dto.getEmployeeId());
         return certificate;
 
     }

@@ -34,14 +34,22 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="exp">Description</label>
-                                            <input th:field="*{description}" id="exp" type="text" class="form-control" placeholder="description">
+                                            <label for="exp">Expiration Date</label>
+                                            <input th:field="*{expirationDate}" id="exp" type="text" class="form-control" placeholder="dd/MM/yyyy">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="exp">Expiration Date</label>
-                                            <input th:field="*{expirationDate}" id="exp" type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                            <label for="quill-toolbar">Description</label>
+                                            <div id="quill-tool">
+                                                <button class="ql-bold" data-toggle="tooltip" data-placement="bottom" title="Bold"></button>
+                                                <button class="ql-underline" data-toggle="tooltip" data-placement="bottom" title="Underline"></button>
+                                                <button class="ql-italic" data-toggle="tooltip" data-placement="bottom" title="Add italic text <cmd+i>"></button>
+                                                <button class="ql-image" data-toggle="tooltip" data-placement="bottom" title="Upload image"></button>
+                                                <button class="ql-code-block" data-toggle="tooltip" data-placement="bottom" title="Show code"></button>
+                                            </div>
+                                            <div id="quill-toolbar" th:field="*{description}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

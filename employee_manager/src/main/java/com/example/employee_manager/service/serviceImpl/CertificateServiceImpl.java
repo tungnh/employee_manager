@@ -5,9 +5,12 @@ import com.example.employee_manager.domain.Certificate;
 import com.example.employee_manager.domain.Employee;
 import com.example.employee_manager.repository.CertificateRepository;
 import com.example.employee_manager.repository.EmployeeRepository;
+import com.example.employee_manager.repository.ExperienceRepository;
 import com.example.employee_manager.service.CertificateService;
 import com.example.employee_manager.service.dto.CertificateDTO;
 import com.example.employee_manager.service.mapper.CertificateMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,11 +26,14 @@ public class CertificateServiceImpl implements CertificateService {
     private final CertificateRepository certificateRepository;
     private final CertificateMapper certificateMapper;
     private final EmployeeRepository employeeRepository;
+    private final ExperienceRepository experienceRepository;
 
-    public CertificateServiceImpl(CertificateRepository certificateRepository, CertificateMapper certificateMapper, EmployeeRepository employeeRepository) {
+    public CertificateServiceImpl(CertificateRepository certificateRepository, CertificateMapper certificateMapper, EmployeeRepository employeeRepository,
+                                  ExperienceRepository experienceRepository) {
         this.certificateRepository = certificateRepository;
         this.certificateMapper = certificateMapper;
         this.employeeRepository = employeeRepository;
+        this.experienceRepository = experienceRepository;
     }
 
     @Override
@@ -43,8 +49,13 @@ public class CertificateServiceImpl implements CertificateService {
     }
 
     @Override
-    public List<CertificateDTO> getAll() {
+    public List<CertificateDTO> findAll() {
         return certificateMapper.toDto(certificateRepository.findAll());
+    }
+
+    @Override
+    public Page<CertificateDTO> pageAll(Pageable pageable) {
+        return certificateRepository.findAll(pageable).map(certificateMapper::toDto);
     }
 
     @Override
@@ -56,9 +67,11 @@ public class CertificateServiceImpl implements CertificateService {
             Optional<Employee> employee = employeeRepository.findOneByUserName(userDetails.getUsername());
             if (employee.isPresent()) {
                 Employee user = employee.get();
-                cetificateDTO.setCreatedBy(user.getUserName());
+                certificate.setCreatedBy(user.getUserName());
+                certificate.setEmployee(employee.get());
             }
         }
+
         certificate.setCreatedDate(new Date());
         certificate = certificateRepository.save(certificate);
         return certificateMapper.toDto(certificate);
@@ -73,9 +86,11 @@ public class CertificateServiceImpl implements CertificateService {
             Optional<Employee> employee = employeeRepository.findOneByUserName(userDetails.getUsername());
             if (employee.isPresent()) {
                 Employee user = employee.get();
-                cetificateDTO.setLastModifiedBy(user.getUserName());
+                certificate.setLastModifiedBy(user.getUserName());
+                certificate.setEmployee(employee.get());
             }
         }
+
         certificate.setLastModifiedDate(new Date());
         certificate = certificateRepository.save(certificate);
         return certificateMapper.toDto(certificate);

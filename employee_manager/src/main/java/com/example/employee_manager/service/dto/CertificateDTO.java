@@ -1,5 +1,7 @@
 package com.example.employee_manager.service.dto;
 
+import com.example.employee_manager.domain.Employee;
+
 import java.util.Date;
 
 public class CertificateDTO {
@@ -12,11 +14,12 @@ public class CertificateDTO {
     private Date createdDate;
     private String lastModifiedBy;
     private Date lastModifiedDate;
+    private Employee employeeId;
 
     public CertificateDTO() {
     }
 
-    public CertificateDTO(int id, String name, String description, Date issueDate, Date expirationDate, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate) {
+    public CertificateDTO(int id, String name, String description, Date issueDate, Date expirationDate, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, Employee employeeId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -26,6 +29,7 @@ public class CertificateDTO {
         this.createdDate = createdDate;
         this.lastModifiedBy = lastModifiedBy;
         this.lastModifiedDate = lastModifiedDate;
+        this.employeeId = employeeId;
     }
 
     public int getId() {
@@ -98,5 +102,13 @@ public class CertificateDTO {
 
     public void setLastModifiedDate(Date lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public Employee getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Employee employeeId) {
+        this.employeeId = employeeId;
     }
 }
