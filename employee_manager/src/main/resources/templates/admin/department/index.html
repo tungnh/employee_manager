@@ -1,15 +1,13 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Employee | Danh sách phòng ban</title>
-
+</head>
 <body>
-<div class="content-page" layout:fragment="content">
-    <div class="wrapper">
+ <div class="content-page" layout:fragment="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -26,7 +24,6 @@
                         <a th:href="@{/department/add}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add
                             Position</a>
                     </div>
-
                     <div class="col-lg-12">
                         <div class="table-responsive rounded mb-3">
                             <table class="data-table table mb-0 tbl-server-info">
@@ -66,7 +63,8 @@
                                                title=""
                                                data-original-title="Edit"
                                                href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                            <a th:href="@{/department/delete/{id}(id=${de.id})}" class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
+                                            <a th:href="@{/department/delete/{id}(id=${de.id})}" onclick="return confirm('Bạn chắn chắn muốn xóa không')"
+                                               class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Delete"
                                                href="#"><i class="ri-delete-bin-line mr-0"></i></a>
@@ -98,11 +96,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- Page end  -->
             </div>
         </div>
     </div>
 </div>
 </body>
-
 </html>

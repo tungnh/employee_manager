@@ -4,25 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>POS Dash | Responsive Bootstrap 4 Admin Dashboard Template</title>
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico"/>
-    <link rel="stylesheet" href="../assets/css/backend-plugin.min.css">
-    <link rel="stylesheet" href="../assets/css/backend.css?v=1.0.0">
-    <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-    <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">
+    <title>Profile</title>
 </head>
 <body class="  ">
-<!-- loader Start -->
-<div id="loading">
-    <div id="loading-center">
-    </div>
-</div>
-<!-- loader END -->
 <!-- Wrapper Start -->
-<div class="wrapper">
+<div class="wrapper" layout:fragment="content" >
     <div class="modal fade" id="new-order" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -53,7 +39,7 @@
                     <div class="card car-transparent">
                         <div class="card-body p-0">
                             <div class="profile-image position-relative">
-                                <img src="../assets/images/page-img/profile.png" class="img-fluid rounded w-100"
+                                <img src="/assets/images/page-img/profile.png" class="img-fluid rounded w-100"
                                      alt="profile-image">
                             </div>
                         </div>
@@ -62,24 +48,19 @@
             </div>
             <div class="row m-sm-0 px-3">
                 <div class="col-lg-4 card-profile">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="profile-img position-relative">
-                                    <img src="../assets/images/user/1.png" class="img-fluid rounded avatar-110"
-                                         alt="profile-image">
+                    <form>
+                        <div class="card card-block card-stretch card-height">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="profile-img position-relative">
+                                        <img src="/assets/images/user/1.png" class="img-fluid rounded avatar-110"
+                                            alt="profile-image">
+                                    </div>
+                                    <div class="ml-3">
+                                        <h4 class="mb-1" th:text="${profileUser.get().firstName} + ' ' + ${profileUser.get().lastName}"></h4>
+                                        <p class="mb-2">kinh nghiệm - framework</p>
+                                    </div>
                                 </div>
-                                <div class="ml-3">
-                                    <h4 class="mb-1">Ruben Dokidis</h4>
-                                    <p class="mb-2">UI/UX Designer</p>
-                                    <a href="#" class="btn btn-primary font-size-14">Contact</a>
-                                </div>
-                            </div>
-                            <p>
-                                I’m a Ux/UI designer. I spend my whole day,
-                                practically every day, experimenting with new
-                                designs, making illustartion, and animation.
-                            </p>
                             <ul class="list-inline p-0 m-0">
                                 <li class="mb-2">
                                     <div class="d-flex align-items-center">
@@ -91,7 +72,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                         </svg>
-                                        <p class="mb-0">Calefornia, U.S.A</p>
+                                        <p th:text="${profileUser.get().address}" class="mb-0"></p>
                                     </div>
                                 </li>
                                 <li class="mb-2">
@@ -102,7 +83,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                         </svg>
-                                        <p class="mb-0">SMCE Corp. Lead UI/UX Designer</p>
+                                        <p class="mb-0">Phòng ban</p>
                                     </div>
                                 </li>
                                 <li class="mb-2">
@@ -113,7 +94,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"/>
                                         </svg>
-                                        <p class="mb-0">March 25</p>
+                                        <p th:text="${profileUser.get().birthday}" class="mb-0"></p>
                                     </div>
                                 </li>
                                 <li class="mb-2">
@@ -124,7 +105,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                                         </svg>
-                                        <p class="mb-0">+91 01234 56789</p>
+                                        <p th:text="${profileUser.get().phoneNumber}" class="mb-0"></p>
                                     </div>
                                 </li>
                                 <li>
@@ -135,12 +116,13 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                         </svg>
-                                        <p class="mb-0">JoanDuo@property.com</p>
+                                        <p th:text="${profileUser.get().email}" class="mb-0"></p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-lg-8 card-profile">
                     <div class="card card-block card-stretch card-height">
@@ -148,24 +130,20 @@
                             <ul class="d-flex nav nav-pills mb-3 text-center profile-tab" id="profile-pills-tab"
                                 role="tablist">
                                 <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#profile3" role="tab"
+                                       aria-selected="false">Information</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link active show" data-toggle="pill" href="#profile1" role="tab"
                                        aria-selected="false">My Skills</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="pill" href="#profile2" role="tab"
-                                       aria-selected="false">Personal Information</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="pill" href="#profile3" role="tab"
-                                       aria-selected="false">Education</a>
+                                       aria-selected="false">Certificate</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="pill" href="#profile4" role="tab"
                                        aria-selected="false">Experience</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a id="view-btn" class="nav-link" data-toggle="pill" href="#profile5" role="tab"
-                                       aria-selected="true">About</a>
                                 </li>
                             </ul>
                             <div class="profile-content tab-content">
@@ -181,7 +159,7 @@
                                             <ul class="list-inline p-0 m-0">
                                                 <li class="mb-4">
                                                     <div class="d-flex align-items-center pt-2">
-                                                        <img src="../assets/images/profile/service/01.png"
+                                                        <img src="/assets/images/profile/service/01.png"
                                                              class="img-fluid" alt="image">
                                                         <div class="ml-3 w-100">
                                                             <div class="media align-items-center justify-content-between">
@@ -197,7 +175,7 @@
                                                 </li>
                                                 <li class="mb-4">
                                                     <div class="d-flex align-items-center pt-2">
-                                                        <img src="../assets/images/profile/service/02.png"
+                                                        <img src="/assets/images/profile/service/02.png"
                                                              class="img-fluid mr-3" alt="image">
                                                         <div class="ml-3 w-100">
                                                             <div class="media align-items-center justify-content-between">
@@ -213,8 +191,7 @@
                                                 </li>
                                                 <li>
                                                     <div class="d-flex align-items-center pt-2">
-                                                        <img src="../assets/images/profile/service/03.png"
-                                                             class="img-fluid" alt="image">
+                                                        <img src="/assets/images/profile/service/03.png"                     class="img-fluid" alt="image">
                                                         <div class="ml-3 w-100">
                                                             <div class="media align-items-center justify-content-between">
                                                                 <p class="mb-0">Adobe Photoshop</p>
@@ -233,7 +210,7 @@
                                             <ul class="list-inline p-0 m-0">
                                                 <li class="mb-4">
                                                     <div class="d-flex align-items-center pt-2">
-                                                        <img src="../assets/images/profile/service/04.png"
+                                                        <img src="/assets/images/profile/service/04.png"
                                                              class="img-fluid" alt="image">
                                                         <div class="ml-3 w-100">
                                                             <div class="media align-items-center justify-content-between">
@@ -249,7 +226,7 @@
                                                 </li>
                                                 <li class="mb-4">
                                                     <div class="d-flex align-items-center pt-2">
-                                                        <img src="../assets/images/profile/service/05.png"
+                                                        <img src="/assets/images/profile/service/05.png"
                                                              class="img-fluid" alt="image">
                                                         <div class="ml-3 w-100">
                                                             <div class="media align-items-center justify-content-between">
@@ -265,7 +242,7 @@
                                                 </li>
                                                 <li>
                                                     <div class="d-flex align-items-center pt-2">
-                                                        <img src="../assets/images/profile/service/06.png"
+                                                        <img src="/assets/images/profile/service/06.png"
                                                              class="img-fluid" alt="image">
                                                         <div class="ml-3 w-100">
                                                             <div class="media align-items-center justify-content-between">
@@ -627,20 +604,6 @@
     </div>
 </div>
 <!-- Wrapper End-->
-
-<!-- Backend Bundle JavaScript -->
-<script src="../assets/js/backend-bundle.min.js"></script>
-
-<!-- Table Treeview JavaScript -->
-<script src="../assets/js/table-treeview.js"></script>
-
-<!-- Chart Custom JavaScript -->
-<script src="../assets/js/customizer.js"></script>
-
-<!-- Chart Custom JavaScript -->
-<script async src="../assets/js/chart-custom.js"></script>
-
-<!-- app JavaScript -->
-<script src="../assets/js/app.js"></script>
 </body>
 </html>
+>>>>>>> develop

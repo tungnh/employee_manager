@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Employee manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Employee manager</title>
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
-  <link rel="stylesheet" href="/assets/css/backend-plugin.min.css">
-  <link rel="stylesheet" href="/assets/css/backend.css?v=1.0.0">
-  <link rel="stylesheet" href="/assets/vendor/fortawesome/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-  <link rel="stylesheet" href="/assets/vendor/remixicon/fonts/remixicon.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
+    <link rel="stylesheet" href="/assets/css/backend-plugin.min.css">
+    <link rel="stylesheet" href="/assets/css/backend.css?v=1.0.0">
+    <link rel="stylesheet" href="/assets/vendor/fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/assets/vendor/remixicon/fonts/remixicon.css">
 </head>
 <body>
-	<!-- loader Start -->
-    <div id="loading">
-   		<div id="loading-center">
-  		</div>
+<!-- loader Start -->
+<div id="loading">
+    <div id="loading-center">
     </div>
-    <!-- loader END -->
-    <!-- Wrapper Start -->
-	<div class="wrapper">
-		<th:block th:replace="layout/sidebar.html::sidebar"/>
-		<th:block th:replace="layout/navbar.html::navbar"/>
-		<th:block layout:fragment="content"/>
-	</div>
-	<!-- Wrapper End-->
-	<th:block th:replace="layout/footer.html::footer"/>
+</div>
+<!-- loader END -->
+<!-- Wrapper Start -->
+<div class="wrapper">
+    <th:block th:replace="layout/sidebar.html::sidebar"/>
+    <th:block th:replace="layout/navbar.html::navbar"/>
+    <th:block layout:fragment="content"/>
+</div>
+<!-- Wrapper End-->
+<th:block th:replace="layout/footer.html::footer"/>
 
-	<script src="/assets/js/backend-bundle.min.js"></script>
-	<!-- Table Treeview JavaScript -->
-	<script src="/assets/js/table-treeview.js"></script>
-	<!-- Chart Custom JavaScript -->
-	<script src="/assets/js/customizer.js"></script>
-	<!-- Chart Custom JavaScript -->
-	<script async src="/assets/js/chart-custom.js"></script>
-	<!-- app JavaScript -->
-	<script src="/assets/js/app.js"></script>
+<script src="/assets/js/backend-bundle.min.js"></script>
+<!-- Table Treeview JavaScript -->
+<script src="/assets/js/table-treeview.js"></script>
+<!-- Chart Custom JavaScript -->
+<script src="/assets/js/customizer.js"></script>
+<!-- Chart Custom JavaScript -->
+<script async src="/assets/js/chart-custom.js"></script>
+<!-- app JavaScript -->
+<script src="/assets/js/app.js"></script>
 </body>
 </html>

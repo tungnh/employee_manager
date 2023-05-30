@@ -1,5 +1,6 @@
 package com.example.employee_manager.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class Employee {
     @Column(name = "citizen_id", unique = true)
     private String citzenId;
     @Column(name = "birthday")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date birthday;
     @Column(name = "sex")
     private int sex;

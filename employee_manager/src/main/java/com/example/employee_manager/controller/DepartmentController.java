@@ -6,7 +6,6 @@ import com.example.employee_manager.service.dto.DepartmentDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -14,12 +13,12 @@ import java.util.Optional;
 @RequestMapping("/department")
 public class DepartmentController {
     private final DepartmentService departmentService;
-
     public DepartmentController(DepartmentService departmentService) {
         this.departmentService = departmentService;
     }
+
     @GetMapping("/index")
-    public String currency(Model model) {
+    public String departmentIndex(Model model) {
         model.addAttribute("departmentList", departmentService.getAll());
         return "admin/department/index";
     }
@@ -32,7 +31,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/add")
-    public String Add(Model model){
+    public String add(Model model){
         model.addAttribute("department",new DepartmentDTO());
         return "admin/department/add";
     }
@@ -56,7 +55,7 @@ public class DepartmentController {
     }
 
     @PostMapping("update")
-    public String updateWallet(@ModelAttribute DepartmentDTO departmentDTO, Model model) {
+    public String update(@ModelAttribute DepartmentDTO departmentDTO, Model model) {
         departmentService.update(departmentDTO);
         model.addAttribute("departmentList", departmentService.getAll());
         return "admin/department/index";

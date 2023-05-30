@@ -1,85 +1,62 @@
 <!doctype html>
-<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Employee manager | Thêm mới chức vụ</title>
 </head>
-
 <body>
-    <div class="content-page" layout:fragment="content">
-        <div class="container-fluid add-form-list">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-                            <div class="header-title">
-                                <h4 class="card-title">Add Position</h4>
-                            </div>
+<div class="content-page" layout:fragment="content">
+    <div class="container-fluid add-form-list">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title"> + Add Position</h4>
                         </div>
-                        <div class="card-body">
-                            <form data-toggle="validator" th:action="@{/position/add}" method="post">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Name *</label>
-                                            <input type="text" name="name" class="form-control" placeholder="Enter Name"
-                                                data-errors="Please Enter Name." required>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Description *</label>
-                                            <input type="text" name="description" class="form-control" placeholder="Enter Description"
-                                                data-errors="Please Enter Code." required>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Create By *</label>
-                                            <input type="text" class="form-control" placeholder="Enter By"
-                                                data-errors="Please Enter Cost." required>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Create Date *</label>
-                                            <input type="text" class="form-control" placeholder="Enter date"
-                                                data-errors="Please Enter Price." required>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>last modified by *</label>
-                                            <input name="type" class="selectpicker form-control" data-style="py-0">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Last modified date *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Quantity"
-                                                required>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form data-toggle="validator" th:action="@{/position/add}" method="post" role="form"
+                              th:object="${position}">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name1">Name *</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Name"
+                                               data-errors="Please Enter Name." required id="name1" th:field="*{name}">
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary mr-2">Add Product</button>
-                                <!--                            <button type="reset" class="btn btn-danger">Reset</button>-->
-                            </form>
-                        </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="description1">Description *</label>
+                                        <input type="text" name="description" class="form-control"
+                                               placeholder="Enter Description"
+                                               data-errors="Please Enter Code." required id="description1"
+                                               th:field="*{description}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="sex">Status *</label>
+                                        <select id="sex" name="sex" th:field="*{status}"
+                                                class="select picker form-control" data-style="py-0">
+                                            <option value="1">Active</option>
+                                            <option value="0">Block</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger"> Add ...</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- Page end  -->
         </div>
     </div>
+</div>
 </body>
-
 </html>

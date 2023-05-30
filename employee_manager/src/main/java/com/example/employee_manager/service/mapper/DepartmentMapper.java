@@ -3,7 +3,6 @@ package com.example.employee_manager.service.mapper;
 import com.example.employee_manager.domain.Department;
 import com.example.employee_manager.service.dto.DepartmentDTO;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +59,6 @@ public class DepartmentMapper implements EntityMapper<DepartmentDTO, Department>
 
     @Override
     public List<DepartmentDTO> toDto(List<Department> entityList) {
-
         if (entityList == null) {
             return null;
         }
@@ -73,6 +71,5 @@ public class DepartmentMapper implements EntityMapper<DepartmentDTO, Department>
 
     @Override
     public void partialUpdate(Department entity, DepartmentDTO dto) {
-
     }
 }
