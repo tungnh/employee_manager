@@ -47,7 +47,7 @@ public class PositionController {
     }
 
     @PostMapping("update")
-    public String updateCurrency(@ModelAttribute PositionDTO positionDTO, Model model) {
+    public String update(@ModelAttribute PositionDTO positionDTO, Model model) {
         positionService.update(positionDTO);
         model.addAttribute("positionList", positionService.getAll());
         return "admin/position/index";
@@ -60,7 +60,7 @@ public class PositionController {
     }
 
     @GetMapping("/search")
-    public String searchUsers(@RequestParam("name") String name, Model model) {
+    public String search(@RequestParam("name") String name, Model model) {
         List<PositionDTO> positionDTOList = positionService.searchByName(name);
         model.addAttribute("positionList", positionDTOList);
         return "admin/position/index";
