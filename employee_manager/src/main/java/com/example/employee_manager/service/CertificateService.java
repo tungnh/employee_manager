@@ -11,10 +11,8 @@ import java.util.Optional;
 
 public interface CertificateService {
     Optional<CertificateDTO> findById(int id);
-    List<CertificateDTO> findAll();
-    Page<CertificateDTO> pageAll(Pageable pageable);
+    Page<CertificateDTO> findAll(String search,Pageable pageable);
     CertificateDTO save(CertificateDTO certificateDTO);
     CertificateDTO update(CertificateDTO certificateDTO);
     void delete(int id);
-    List<CertificateDTO> searchByName(String name);
 }

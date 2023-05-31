@@ -11,11 +11,13 @@ import com.example.employee_manager.service.dto.PositionDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,16 +25,19 @@ import java.util.Optional;
 @RequestMapping("/certificate")
 public class CertificateController {
     private final CertificateService certificateService;
+    private final EmployeeService employeeService;
 
-    public CertificateController(CertificateService certificateService) {
+    public CertificateController(CertificateService certificateService, EmployeeService employeeService) {
         this.certificateService = certificateService;
+        this.employeeService = employeeService;
     }
 
-    @GetMapping("/index")
-    public ModelAndView showCertificateList() {
-        ModelAndView mav = new ModelAndView("user/certificate/index");
-        mav.addObject("certificateList", certificateService.findAll());
-        return mav;
+    @GetMapping("index")
+    public String showCertificateList(Model model, @RequestParam(name = "search", required = false) String search, Pageable pageable) {
+        Page<CertificateDTO> certificateDTOPage = certificateService.findAll(search, pageable);
+        model.addAttribute("totalPages", certificateDTOPage.getTotalPages());
+        model.addAttribute("certificateList", certificateDTOPage.getContent());
+        return "user/certificate/index";
     }
 
     @GetMapping("/add")
@@ -66,12 +71,5 @@ public class CertificateController {
     public String deleteCertificate(@RequestParam int id) {
         certificateService.delete(id);
         return "redirect:/certificate/index";
-    }
-
-    @GetMapping("/search")
-    public String search(@RequestParam("name") String name, Model model) {
-        List<CertificateDTO> searchByName = certificateService.searchByName(name);
-        model.addAttribute("certificateList", searchByName);
-        return "user/certificate/index";
     }
 }

@@ -40,13 +40,12 @@ public class CertificateServiceImpl implements CertificateService {
     }
 
     @Override
-    public List<CertificateDTO> findAll() {
-        return certificateMapper.toDto(certificateRepository.findAll());
-    }
-
-    @Override
-    public Page<CertificateDTO> pageAll(Pageable pageable) {
-        return certificateRepository.findAll(pageable).map(certificateMapper::toDto);
+    public Page<CertificateDTO> findAll(String search, Pageable pageable) {
+        if (search == null || search.isEmpty()) {
+            return certificateRepository.findAll(pageable).map(certificateMapper::toDto);
+        } else {
+            return certificateRepository.findByNameContaining(search, pageable).map(certificateMapper::toDto);
+        }
     }
 
     @Override
@@ -77,6 +76,8 @@ public class CertificateServiceImpl implements CertificateService {
             Optional<Employee> employee = employeeRepository.findOneByUserName(userDetails.getUsername());
             if (employee.isPresent()) {
                 Employee user = employee.get();
+                certificate.setCreatedDate(user.getCreatedDate());
+                certificate.setCreatedBy(user.getCreatedBy());
                 certificate.setLastModifiedBy(user.getUserName());
                 certificate.setEmployee(employee.get());
             }
@@ -91,10 +92,4 @@ public class CertificateServiceImpl implements CertificateService {
     public void delete(int id) {
         certificateRepository.deleteById(id);
     }
-
-    @Override
-    public List<CertificateDTO> searchByName(String name) {
-        return certificateMapper.toDto(certificateRepository.findByNameContaining(name));
-    }
-
 }

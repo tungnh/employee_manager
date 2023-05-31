@@ -1,6 +1,7 @@
 package com.example.employee_manager.service.dto;
 
 import com.example.employee_manager.domain.Employee;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -8,18 +9,22 @@ public class CertificateDTO {
     private int id;
     private String name;
     private String description;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date issueDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date expirationDate;
     private String createdBy;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdDate;
     private String lastModifiedBy;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date lastModifiedDate;
-    private Employee employeeId;
+    private int employeeId;
 
     public CertificateDTO() {
     }
 
-    public CertificateDTO(int id, String name, String description, Date issueDate, Date expirationDate, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, Employee employeeId) {
+    public CertificateDTO(int id, String name, String description, Date issueDate, Date expirationDate, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, int employeeId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -104,11 +109,11 @@ public class CertificateDTO {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public Employee getEmployeeId() {
+    public int getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(Employee employeeId) {
+    public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
 }
