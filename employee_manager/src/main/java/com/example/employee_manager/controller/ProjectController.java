@@ -24,14 +24,11 @@ public class ProjectController {
     }
 
     @GetMapping("/index")
-    public String getAll(@RequestParam(defaultValue = "0") int page,
-                         @RequestParam(defaultValue = "3") int size,
-                         @RequestParam(name = "name", required = false) String search, Model model) {
-        Pageable pageable = PageRequest.of(page, size);
+    public String getAll(Pageable pageable, @RequestParam(name = "name", required = false) String search, Model model) {
         Page<ProjectDTO> projectDTOS = projectService.pageAll(search, pageable);
         model.addAttribute("totalPages", projectDTOS.getTotalPages());
-        model.addAttribute("currentPage", page);
-        model.addAttribute("pageSize", size);
+//        model.addAttribute("currentPage", pageable);
+//        model.addAttribute("pageSize", pageable);
         model.addAttribute("projectList", projectDTOS.getContent());
         return "admin/project/index";
     }

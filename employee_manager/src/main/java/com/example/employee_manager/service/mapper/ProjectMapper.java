@@ -11,8 +11,8 @@ import java.util.List;
 public class ProjectMapper implements EntityMapper<ProjectDTO, Project> {
     @Override
     public Project toEntity(ProjectDTO dto) {
-        if(dto==null){
-            return  null;
+        if (dto == null) {
+            return null;
         }
         Project project = new Project();
         project.setId(dto.getId());
@@ -37,7 +37,7 @@ public class ProjectMapper implements EntityMapper<ProjectDTO, Project> {
 
     @Override
     public ProjectDTO toDto(Project entity) {
-        if (entity==null){
+        if (entity == null) {
             return null;
         }
         ProjectDTO projectDTO = new ProjectDTO();

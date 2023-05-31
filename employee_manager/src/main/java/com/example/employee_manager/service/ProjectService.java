@@ -8,10 +8,15 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProjectService {
-        Optional<ProjectDTO> findById(int id);
+    Optional<ProjectDTO> findById(int id);
+
     List<ProjectDTO> getAll();
+
     ProjectDTO save(ProjectDTO projectDTO);
+
     ProjectDTO update(ProjectDTO projectDTO);
+
     void delete(int id);
+
     Page<ProjectDTO> pageAll(String search, Pageable pageable);
 }
