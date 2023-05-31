@@ -6,8 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-<div class="wrapper" layout:fragment="content">
-    <div class="content-page">
+    <div class="content-page" layout:fragment="content">
         <div class="container-fluid add-form-list">
             <div class="row">
                 <div class="col-sm-12">
@@ -34,8 +33,8 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="exp">Description</label>
-                                            <input th:field="*{description}" id="exp" type="text" class="form-control" placeholder="description">
+                                            <label for="des">Description</label>
+                                            <input th:field="*{description}" id="des" type="text" class="form-control" placeholder="description">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -57,7 +56,5 @@
             <!-- Page end  -->
         </div>
     </div>
-</div>
-
 </body>
 </html>

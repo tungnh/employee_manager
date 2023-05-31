@@ -36,14 +36,7 @@ public class CertificateServiceImpl implements CertificateService {
 
     @Override
     public Optional<CertificateDTO> findById(int id) {
-        Optional<Certificate> certificateOptional = certificateRepository.findById(id);
-        if (certificateOptional.isPresent()) {
-            Certificate certificate = certificateOptional.get();
-            CertificateDTO cetificateDTO = certificateMapper.toDto(certificate);
-            return Optional.of(cetificateDTO);
-        } else {
-            return Optional.empty();
-        }
+            return certificateRepository.findById(id).map(certificateMapper::toDto);
     }
 
     @Override
