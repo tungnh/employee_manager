@@ -31,7 +31,6 @@ public class PositionMapper implements EntityMapper<PositionDTO, Position> {
         if (entity == null) {
             return null;
         }
-
         PositionDTO positionDTO = new PositionDTO();
         positionDTO.setId(entity.getId());
         positionDTO.setName(entity.getName());

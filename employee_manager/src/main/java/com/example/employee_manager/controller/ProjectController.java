@@ -2,10 +2,15 @@ package com.example.employee_manager.controller;
 
 import com.example.employee_manager.service.ProjectService;
 import com.example.employee_manager.service.dto.ProjectDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,8 +24,15 @@ public class ProjectController {
     }
 
     @GetMapping("/index")
-    public String index(Model model){
-        model.addAttribute("projectList",projectService.getAll());
+    public String getAll(@RequestParam(defaultValue = "0") int page,
+                         @RequestParam(defaultValue = "3") int size,
+                         @RequestParam(name = "name", required = false) String search, Model model) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<ProjectDTO> projectDTOS = projectService.pageAll(search, pageable);
+        model.addAttribute("totalPages", projectDTOS.getTotalPages());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", size);
+        model.addAttribute("projectList", projectDTOS.getContent());
         return "admin/project/index";
     }
 
@@ -31,25 +43,19 @@ public class ProjectController {
     }
 
     @PostMapping("/add")
-    public String addProject(@ModelAttribute ProjectDTO projectDTO,Model model){
+    public String create(@ModelAttribute ProjectDTO projectDTO, Model model) {
         projectService.save(projectDTO);
-        model.addAttribute("projectList",projectService.getAll());
-        return "admin/project/index";
+        model.addAttribute("projectList", projectService.getAll());
+        return "redirect:/project/index";
     }
 
     @GetMapping("delete/{id}")
-    public String delete(@PathVariable int id,Model model){
+    public String delete(@PathVariable int id, Model model) {
         projectService.delete(id);
-        model.addAttribute("projectList",projectService.getAll());
-        return "admin/project/index";
+        model.addAttribute("projectList", projectService.getAll());
+        return "redirect:/project/index";
     }
 
-    @GetMapping("search")
-    public String search(@RequestParam("name")String name, Model model){
-        List<ProjectDTO> projectDTOList = projectService.searchByName(name);
-        model.addAttribute("projectList",projectDTOList);
-        return "admin/project/index";
-    }
     @GetMapping("update/{id}")
     public String edit(@PathVariable int id, Model model) {
         Optional<ProjectDTO> projectDTO1 = projectService.findById(id);
@@ -62,9 +68,14 @@ public class ProjectController {
     }
 
     @PostMapping("update")
-    public String updateCurrency(@ModelAttribute ProjectDTO projectDTO, Model model) {
-        projectService.update(projectDTO);
+    public String update(@ModelAttribute ProjectDTO projectDTO, Model model) {
+        ProjectDTO exit = projectService.findById(projectDTO.getId()).get();
+        Date createDate = exit.getCreatedDate();
+        Integer userId = exit.getId();
+        projectDTO.setCreatedDate(createDate);
+        projectDTO.setId(userId);
         model.addAttribute("projectList", projectService.getAll());
-        return "admin/project/index";
+        projectService.update(projectDTO);
+        return "redirect:/project/index";
     }
 }

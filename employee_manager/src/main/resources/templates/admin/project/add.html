@@ -61,11 +61,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="language">Language *</label>
-                                        <input type="text" name="description" class="form-control"
-                                               placeholder="Enter language"
-                                               data-errors="Please Enter Code." required id="language"
-                                               th:field="*{language}">
-                                        <div class="help-block with-errors"></div>
+                                        <select id="language" name="sex" th:field="*{language}"
+                                                class="select picker form-control" data-style="py-0">
+                                            <option value="Java">Java</option>
+                                            <option value="Java script">Java script</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="C++">C++</option>
+                                            <option value="Python">Python</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -110,7 +113,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="start">StartDate *</label>
-                                        <input type="text" name="description" class="form-control"
+                                        <input type="date" name="description" class="form-control"
                                                placeholder="Enter StartDate"
                                                data-errors="Please Enter Code." required id="start"
                                                th:field="*{startDate}">
@@ -120,7 +123,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="end">EndDate *</label>
-                                        <input type="text" name="description" class="form-control"
+                                        <input type="date" name="description" class="form-control"
                                                placeholder="Enter EndDate"
                                                data-errors="Please Enter Code." required id="end" th:field="*{endDate}">
                                         <div class="help-block with-errors"></div>
@@ -136,7 +139,6 @@
                                         </select>
                                     </div>
                                 </div>
-
                             </div>
                             <button type="submit" class="btn btn-danger"> Add ...</button>
                         </form>

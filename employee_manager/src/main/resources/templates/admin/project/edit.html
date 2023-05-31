@@ -14,11 +14,11 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title"> + Edit Position</h4>
+                            <h4 class="card-title"> + Edit Project</h4>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form data-toggle="validator" th:action="@{/project/update}" method="post" role="form"
+                        <form data-toggle="validator" th:action="@{/project/update}" method="post"  role="form"
                               th:object="${project}">
                             <div class="row">
                                 <div class="col-md-6">
@@ -109,8 +109,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="start">StartDate *</label>
-                                        <input type="text" name="description" class="form-control"
+                                        <label for="start">Start Date *</label>
+                                        <input type="date" name="description" class="form-control"
                                                placeholder="Enter StartDate"
                                                data-errors="Please Enter Code." required id="start"
                                                th:field="*{startDate}">
@@ -120,7 +120,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="end">EndDate *</label>
-                                        <input type="text" name="description" class="form-control"
+                                        <input type="date" name="description" class="form-control"
                                                placeholder="Enter EndDate"
                                                data-errors="Please Enter Code." required id="end" th:field="*{endDate}">
                                         <div class="help-block with-errors"></div>

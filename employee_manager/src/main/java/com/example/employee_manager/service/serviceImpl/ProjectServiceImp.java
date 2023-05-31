@@ -7,6 +7,8 @@ import com.example.employee_manager.repository.ProjectRepository;
 import com.example.employee_manager.service.ProjectService;
 import com.example.employee_manager.service.dto.ProjectDTO;
 import com.example.employee_manager.service.mapper.ProjectMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -83,7 +85,11 @@ public class ProjectServiceImp implements ProjectService {
     }
 
     @Override
-    public List<ProjectDTO> searchByName(String name) {
-        return projectMapper.toDto(projectRepository.findByNameContaining(name));
+    public Page<ProjectDTO> pageAll(String search, Pageable pageable) {
+        if (search == null || search.isEmpty()) {
+            return projectRepository.findAll(pageable).map(projectMapper::toDto);
+        } else {
+            return projectRepository.findByNameContaining(search, pageable).map(projectMapper::toDto);
+        }
     }
 }

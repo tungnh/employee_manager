@@ -1,6 +1,7 @@
 package com.example.employee_manager.service.dto;
 
-import javax.persistence.Column;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class ProjectDTO {
@@ -14,7 +15,9 @@ public class ProjectDTO {
     private String content;
     private String description;
     private String url;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
     private int status;
     private String createdBy;
