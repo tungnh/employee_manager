@@ -101,7 +101,7 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="birthday">BirthDay:</label>
-                            <input th:field="*{birthday}" type="text" class="form-control dateInput" id="birthday">
+                            <input th:field="*{birthday}" type="date" class="form-control dateInput" id="birthday">
                           </div>
                         </div>
                         <div class="col-md-4">
@@ -128,7 +128,7 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="issuedOn">Issued On:</label>
-                            <input th:field="*{issuedOn}" type="text" class="form-control dateInput" id="issuedOn">
+                            <input th:field="*{issuedOn}" type="date" class="form-control dateInput" id="issuedOn">
                           </div>
                         </div>
                         <div class="col-md-4">
@@ -140,13 +140,13 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="startWork">Start Work:</label>
-                            <input th:field="*{startWork}" type="text" class="form-control dateInput" id="startWork">
+                            <input th:field="*{startWork}" type="date" class="form-control dateInput" id="startWork">
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="endWork">End Work:</label>
-                            <input th:field="*{endWork}" type="text" class="form-control dateInput" id="endWork">
+                            <input th:field="*{endWork}" type="date" class="form-control dateInput" id="endWork">
 
                           </div>
                         </div>
@@ -166,6 +166,26 @@
                           <div class="form-group">
                             <label for="address">Address:</label>
                             <input th:field="*{address}" type="text" class="form-control" id="address">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="departmentId">Department</label>
+                            <select th:field="*{departmentId}" id="departmentId" name="departmentId" class="select picker form-control" data-style="py-0">
+                              <option th:each="dpm : ${departmentList}"
+                                      th:value="${dpm.id}"
+                                      th:text="${dpm.name}"></option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="positionId">Position</label>
+                            <select th:field="*{positionId}" id="positionId" name="departmentId" class="select picker form-control" data-style="py-0">
+                              <option th:each="pst : ${positionList}"
+                                      th:value="${pst.id}"
+                                      th:text="${pst.name}"></option>
+                            </select>
                           </div>
                         </div>
                         <div class="col-md-4">

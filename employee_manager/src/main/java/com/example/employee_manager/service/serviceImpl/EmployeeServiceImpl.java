@@ -1,32 +1,48 @@
 package com.example.employee_manager.service.serviceImpl;
 
-import com.example.employee_manager.service.dto.EmployeeDTO;
-import com.example.employee_manager.domain.Employee;
-import com.example.employee_manager.repository.EmployeeRepository;
-import com.example.employee_manager.service.EmployeeService;
-import com.example.employee_manager.service.mapper.EmployeeMapper;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import com.example.employee_manager.domain.Employee;
+import com.example.employee_manager.repository.CertificateRepository;
+import com.example.employee_manager.repository.DepartmentRepository;
+import com.example.employee_manager.repository.EmployeeRepository;
+import com.example.employee_manager.repository.PositionRepository;
+import com.example.employee_manager.service.EmployeeService;
+import com.example.employee_manager.service.dto.EmployeeDTO;
+import com.example.employee_manager.service.mapper.EmployeeMapper;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final EmployeeMapper employeeMapper;
+    private final DepartmentRepository departmentRepository;
+    private final PositionRepository positionRepository;
+    private final CertificateRepository certificateRepository;
 
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository, EmployeeMapper employeeMapper) {
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, EmployeeMapper employeeMapper, DepartmentRepository departmentRepository, PositionRepository positionRepository, CertificateRepository certificateRepository) {
         this.employeeRepository = employeeRepository;
         this.employeeMapper = employeeMapper;
+        this.departmentRepository = departmentRepository;
+        this.positionRepository = positionRepository;
+        this.certificateRepository = certificateRepository;
     }
 
     @Override
-    public List<EmployeeDTO> findAll() {
-        return employeeMapper.toDto(employeeRepository.findAll());
+    public Page<EmployeeDTO> findAll(String search, Pageable pageable) {
+        if (search == null || search.isEmpty()) {
+            return employeeRepository.findAll(pageable).map(employeeMapper::toDto);
+        } else {
+            return employeeRepository.findByFirstNameOrLastNameContaining(search, pageable).map(employeeMapper::toDto);
+        }
     }
 
     @Override
@@ -46,6 +62,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                 employee.setCreatedBy(user.getUserName());
             }
         }
+        employee.setDepartment(departmentRepository.findById(employeeDTO.getDepartmentId()).get());
+        employee.setPosition(positionRepository.findById(employeeDTO.getPositionId()).get());
         employee.setCreatedDate(new Date());
         employee = employeeRepository.save(employee);
         return employeeMapper.toDto(employee);
@@ -61,8 +79,12 @@ public class EmployeeServiceImpl implements EmployeeService {
             if (optionalEmployee.isPresent()) {
                 Employee user = optionalEmployee.get();
                 employee.setLastModifiedBy(user.getUserName());
+                employee.setCreatedBy(user.getCreatedBy());
+                employee.setCreatedDate(user.getCreatedDate());
             }
         }
+        employee.setDepartment(departmentRepository.findById(employeeDTO.getDepartmentId()).get());
+        employee.setPosition(positionRepository.findById(employeeDTO.getPositionId()).get());
         employee.setLastModifiedDate(new Date());
         employee = employeeRepository.save(employee);
         return employeeMapper.toDto(employee);
@@ -72,4 +94,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void delete(int id) {
         employeeRepository.deleteById(id);
     }
+
+	@Override
+	public List<EmployeeDTO> findAll() {
+		// TODO Auto-generated method stub
+		return employeeMapper.toDto(employeeRepository.findAll());
+	}
 }
