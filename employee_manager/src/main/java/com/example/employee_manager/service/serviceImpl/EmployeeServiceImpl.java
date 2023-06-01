@@ -37,13 +37,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.certificateRepository = certificateRepository;
     }
 
-
     @Override
     public Page<EmployeeDTO> findAll(String search, Pageable pageable) {
         if (search == null || search.isEmpty()) {
             return employeeRepository.findAll(pageable).map(employeeMapper::toDto);
         } else {
-            return employeeRepository.findByNameContaining(search, pageable).map(employeeMapper::toDto);
+            return employeeRepository.findByFirstNameOrLastNameContaining(search, pageable).map(employeeMapper::toDto);
         }
     }
 
@@ -90,8 +89,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setLastModifiedDate(new Date());
         employee = employeeRepository.save(employee);
         return employeeMapper.toDto(employee);
-
-
     }
 
     @Override

@@ -37,6 +37,7 @@ public class CertificateController {
         Page<CertificateDTO> certificateDTOPage = certificateService.findAll(search, pageable);
         model.addAttribute("totalPages", certificateDTOPage.getTotalPages());
         model.addAttribute("certificateList", certificateDTOPage.getContent());
+        model.addAttribute("currentPage",certificateDTOPage.getNumber());
         return "user/certificate/index";
     }
 

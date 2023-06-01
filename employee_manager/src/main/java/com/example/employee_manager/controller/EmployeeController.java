@@ -4,9 +4,13 @@ import com.example.employee_manager.domain.Department;
 import com.example.employee_manager.domain.Position;
 import com.example.employee_manager.repository.DepartmentRepository;
 import com.example.employee_manager.repository.PositionRepository;
+import com.example.employee_manager.service.DepartmentService;
 import com.example.employee_manager.service.EmployeeService;
+import com.example.employee_manager.service.PositionService;
 import com.example.employee_manager.service.dto.CertificateDTO;
+import com.example.employee_manager.service.dto.DepartmentDTO;
 import com.example.employee_manager.service.dto.EmployeeDTO;
+import com.example.employee_manager.service.dto.PositionDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -21,28 +25,29 @@ import java.util.Optional;
 @RequestMapping("/employee")
 public class EmployeeController {
     private final EmployeeService employeeService;
-    private final DepartmentRepository departmentRepository;
-    private final PositionRepository positionRepository;
+    private final DepartmentService departmentService;
+    private final PositionService positionService;
 
-    public EmployeeController(EmployeeService employeeService, DepartmentRepository departmentRepository, PositionRepository positionRepository) {
+    public EmployeeController(EmployeeService employeeService, DepartmentService departmentService, PositionService positionService) {
         this.employeeService = employeeService;
-        this.departmentRepository = departmentRepository;
-        this.positionRepository = positionRepository;
+        this.departmentService = departmentService;
+        this.positionService = positionService;
     }
 
     @GetMapping("index")
     public String showEmployeeList(Model model, @RequestParam(name = "search", required = false) String search, Pageable pageable) {
         Page<EmployeeDTO> employeeDTOPage = employeeService.findAll(search, pageable);
         model.addAttribute("totalPages", employeeDTOPage.getTotalPages());
-        model.addAttribute("certificateList", employeeDTOPage.getContent());
+        model.addAttribute("employeeList", employeeDTOPage.getContent());
+        model.addAttribute("currentPage", employeeDTOPage.getNumber());
         return "admin/user/index";
     }
 
     @GetMapping("/add")
     public String showRegisterForm(Model model) {
         EmployeeDTO employee = new EmployeeDTO();
-        List<Department> departments = departmentRepository.findAll();
-        List<Position> positions = positionRepository.findAll();
+        List<DepartmentDTO> departments = departmentService.getAll();
+        List<PositionDTO> positions = positionService.getAll();
         model.addAttribute("departmentList", departments);
         model.addAttribute("positionList", positions);
         model.addAttribute("user", employee);
@@ -59,8 +64,8 @@ public class EmployeeController {
     public ModelAndView showEditForm(@PathVariable int id) {
         ModelAndView model = new ModelAndView("admin/user/edit");
         Optional<EmployeeDTO> employee = employeeService.findById(id);
-        List<Department> departments = departmentRepository.findAll();
-        List<Position> positions = positionRepository.findAll();
+        List<DepartmentDTO> departments = departmentService.getAll();
+        List<PositionDTO> positions = positionService.getAll();
         model.addObject("departmentList", departments);
         model.addObject("positionList", positions);
         model.addObject("edit", employee.orElse(new EmployeeDTO()));
