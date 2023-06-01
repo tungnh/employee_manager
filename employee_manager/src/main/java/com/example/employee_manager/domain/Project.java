@@ -45,7 +45,7 @@ public class Project {
     @Column(name = "last_modified_date")
     private Date lastModifiedDate;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "leader_id", insertable = false, updatable = false)
     private Employee employeeLeader;
 
     public Project(int id, String name, int leaderId, String part, int scale, String language, String framework, String content, String description, String url, Date startDate, Date endDate, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, List<Employee> employeeList, Employee employeeLeader) {

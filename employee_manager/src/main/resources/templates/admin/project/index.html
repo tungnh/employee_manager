@@ -31,6 +31,7 @@
                                 <tr class="ligth ligth-data">
                                     <th>Id</th>
                                     <th>Name</th>
+                                    <th>Leader</th>
                                     <th>Part</th>
                                     <th>Scale</th>
                                     <th>Language</th>
@@ -48,6 +49,7 @@
                                 <tr th:each="pr: ${projectList}" th:object="${pr}">
                                     <td th:text="*{id}"></td>
                                     <td th:text="*{name}"></td>
+                                    <td th:text="*{leaderFirstName} + ' ' + *{leaderLastName}"></td>
                                     <td th:text="*{part}"></td>
                                     <td th:text="*{scale}"></td>
                                     <td th:text="*{language}"></td>

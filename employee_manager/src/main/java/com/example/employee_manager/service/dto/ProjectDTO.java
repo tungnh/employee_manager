@@ -26,6 +26,8 @@ public class ProjectDTO {
     private Date createdDate;
     private String lastModifiedBy;
     private Date lastModifiedDate;
+    private String leaderFirstName;
+    private String leaderLastName;
 
     public ProjectDTO() {
     }
@@ -186,4 +188,21 @@ public class ProjectDTO {
         this.lastModifiedDate = lastModifiedDate;
     }
 
+	public String getLeaderFirstName() {
+		return leaderFirstName;
+	}
+
+	public void setLeaderFirstName(String leaderFirstName) {
+		this.leaderFirstName = leaderFirstName;
+	}
+
+	public String getLeaderLastName() {
+		return leaderLastName;
+	}
+
+	public void setLeaderLastName(String leaderLastName) {
+		this.leaderLastName = leaderLastName;
+	}
+
+    
 }

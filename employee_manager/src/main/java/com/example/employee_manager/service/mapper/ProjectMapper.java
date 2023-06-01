@@ -58,6 +58,10 @@ public class ProjectMapper implements EntityMapper<ProjectDTO, Project> {
         projectDTO.setCreatedDate(entity.getCreatedDate());
         projectDTO.setLastModifiedDate(entity.getLastModifiedDate());
         projectDTO.setLastModifiedBy(entity.getLastModifiedBy());
+        if (entity.getEmployeeLeader() != null) {
+        	projectDTO.setLeaderFirstName(entity.getEmployeeLeader().getFirstName());
+        	projectDTO.setLeaderLastName(entity.getEmployeeLeader().getLastName());
+        }
         return projectDTO;
     }
 
