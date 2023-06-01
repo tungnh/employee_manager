@@ -2,11 +2,16 @@ package com.example.employee_manager.controller;
 
 
 import com.example.employee_manager.service.DepartmentService;
+import com.example.employee_manager.service.EmployeeService;
 import com.example.employee_manager.service.dto.DepartmentDTO;
+import com.example.employee_manager.service.dto.EmployeeDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,14 +19,19 @@ import java.util.Optional;
 @RequestMapping("/department")
 public class DepartmentController {
     private final DepartmentService departmentService;
+    private final EmployeeService employeeService;
 
-    public DepartmentController(DepartmentService departmentService) {
+    public DepartmentController(DepartmentService departmentService, EmployeeService employeeService) {
         this.departmentService = departmentService;
+        this.employeeService = employeeService;
     }
 
     @GetMapping("/index")
-    public String departmentIndex(Model model) {
-        model.addAttribute("departmentList", departmentService.getAll());
+    public String getAll(Pageable pageable, @RequestParam(name = "search", required = false) String search, Model model) {
+        Page<DepartmentDTO> departmentDTOS = departmentService.pageAll(search, pageable);
+        model.addAttribute("totalPages", departmentDTOS.getTotalPages());
+        model.addAttribute("currentPage", departmentDTOS.getNumber());
+        model.addAttribute("departmentList", departmentDTOS.getContent());
         return "admin/department/index";
     }
 
@@ -34,21 +44,25 @@ public class DepartmentController {
 
     @GetMapping("/add")
     public String add(Model model) {
+        List<EmployeeDTO> employeesList = employeeService.findAll();
+        model.addAttribute("employeeList", employeesList);
         model.addAttribute("department", new DepartmentDTO());
         return "admin/department/add";
     }
 
     @PostMapping("/add")
     public String addDepartment(@ModelAttribute DepartmentDTO departmentDTO, Model model) {
-        departmentService.save(departmentDTO);
         model.addAttribute("departmentList", departmentService.getAll());
-        return "admin/department/index";
+        departmentService.save(departmentDTO);
+        return "redirect:/department/index";
     }
 
     @GetMapping("update/{id}")
     public String edit(@PathVariable int id, Model model) {
         Optional<DepartmentDTO> departmentDTO = departmentService.findById(id);
         if (departmentDTO.isPresent()) {
+            List<EmployeeDTO> employeesList = employeeService.findAll();
+            model.addAttribute("employeeList", employeesList);
             DepartmentDTO departmentDTO1 = departmentDTO.get();
             model.addAttribute("department", departmentDTO1);
             return "admin/department/edit";
@@ -58,15 +72,13 @@ public class DepartmentController {
 
     @PostMapping("update")
     public String update(@ModelAttribute DepartmentDTO departmentDTO, Model model) {
-        departmentService.update(departmentDTO);
+        DepartmentDTO exit = departmentService.findById(departmentDTO.getId()).get();
+        Date createDate = exit.getCreatedDate();
+        Integer userId = exit.getId();
+        departmentDTO.setCreatedDate(createDate);
+        departmentDTO.setId(userId);
         model.addAttribute("departmentList", departmentService.getAll());
-        return "admin/department/index";
-    }
-
-    @GetMapping("/search")
-    public String search(@RequestParam("name") String name, Model model) {
-        List<DepartmentDTO> departmentDTOList = departmentService.searchByName(name);
-        model.addAttribute("departmentList", departmentDTOList);
-        return "admin/department/index";
+        departmentService.update(departmentDTO);
+        return "redirect:/department/index";
     }
 }

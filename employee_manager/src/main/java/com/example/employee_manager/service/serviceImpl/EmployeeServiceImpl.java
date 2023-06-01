@@ -1,15 +1,9 @@
 package com.example.employee_manager.service.serviceImpl;
 
-import com.example.employee_manager.domain.Department;
-import com.example.employee_manager.domain.Position;
-import com.example.employee_manager.repository.CertificateRepository;
-import com.example.employee_manager.repository.DepartmentRepository;
-import com.example.employee_manager.repository.PositionRepository;
-import com.example.employee_manager.service.dto.EmployeeDTO;
-import com.example.employee_manager.domain.Employee;
-import com.example.employee_manager.repository.EmployeeRepository;
-import com.example.employee_manager.service.EmployeeService;
-import com.example.employee_manager.service.mapper.EmployeeMapper;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
@@ -17,9 +11,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import com.example.employee_manager.domain.Employee;
+import com.example.employee_manager.repository.CertificateRepository;
+import com.example.employee_manager.repository.DepartmentRepository;
+import com.example.employee_manager.repository.EmployeeRepository;
+import com.example.employee_manager.repository.PositionRepository;
+import com.example.employee_manager.service.EmployeeService;
+import com.example.employee_manager.service.dto.EmployeeDTO;
+import com.example.employee_manager.service.mapper.EmployeeMapper;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -95,4 +94,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void delete(int id) {
         employeeRepository.deleteById(id);
     }
+
+	@Override
+	public List<EmployeeDTO> findAll() {
+		// TODO Auto-generated method stub
+		return employeeMapper.toDto(employeeRepository.findAll());
+	}
 }

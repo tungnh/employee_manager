@@ -1,7 +1,11 @@
 package com.example.employee_manager.service.dto;
 
+import com.example.employee_manager.domain.Employee;
+
 import javax.persistence.Column;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class DepartmentDTO {
     private int id;
@@ -16,8 +20,10 @@ public class DepartmentDTO {
     private String lastModifiedBy;
     private Date lastModifiedDate;
 
-    public DepartmentDTO(int id, int parentId, int leaderId, int subLeaderId, String name, String description, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate) {
+    public DepartmentDTO() {
+    }
 
+    public DepartmentDTO(int id, int parentId, int leaderId, int subLeaderId, String name, String description, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate) {
         this.id = id;
         this.parentId = parentId;
         this.leaderId = leaderId;
@@ -29,9 +35,7 @@ public class DepartmentDTO {
         this.createdDate = createdDate;
         this.lastModifiedBy = lastModifiedBy;
         this.lastModifiedDate = lastModifiedDate;
-    }
 
-    public DepartmentDTO() {
     }
 
     public int getId() {
@@ -121,4 +125,5 @@ public class DepartmentDTO {
     public void setLastModifiedDate(Date lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
+
 }

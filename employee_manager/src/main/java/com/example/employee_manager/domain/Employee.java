@@ -97,6 +97,10 @@ public class Employee {
     @JsonIgnore
     private List<Notification> notification = new ArrayList<>();
 
+    @OneToMany(mappedBy = "employeeLeader")
+    @JsonIgnore
+    private List<Project> projectList = new ArrayList<>();
+
     public Employee() {
     }
 

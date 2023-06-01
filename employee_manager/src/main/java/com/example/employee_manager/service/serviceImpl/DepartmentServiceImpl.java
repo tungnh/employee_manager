@@ -6,7 +6,10 @@ import com.example.employee_manager.repository.DepartmentRepository;
 import com.example.employee_manager.repository.EmployeeRepository;
 import com.example.employee_manager.service.DepartmentService;
 import com.example.employee_manager.service.dto.DepartmentDTO;
+import com.example.employee_manager.service.dto.ProjectDTO;
 import com.example.employee_manager.service.mapper.DepartmentMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -79,8 +82,13 @@ public class DepartmentServiceImpl implements DepartmentService {
         departmentRepository.deleteById(id);
     }
 
+
     @Override
-    public List<DepartmentDTO> searchByName(String name) {
-        return departmentMapper.toDto(departmentRepository.findByNameContaining(name));
+    public Page<DepartmentDTO> pageAll(String search, Pageable pageable) {
+        if (search == null || search.isEmpty()) {
+            return departmentRepository.findAll(pageable).map(departmentMapper::toDto);
+        } else {
+            return departmentRepository.findByNameContaining(search, pageable).map(departmentMapper::toDto);
+        }
     }
 }

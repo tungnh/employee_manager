@@ -1,7 +1,10 @@
 package com.example.employee_manager.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Table(name = "project")
 public class Project {
@@ -41,11 +44,12 @@ public class Project {
     private String lastModifiedBy;
     @Column(name = "last_modified_date")
     private Date lastModifiedDate;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "leader_id", insertable = false, updatable = false)
+    private Employee employeeLeader;
 
-    public Project() {
-    }
+    public Project(int id, String name, int leaderId, String part, int scale, String language, String framework, String content, String description, String url, Date startDate, Date endDate, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, List<Employee> employeeList, Employee employeeLeader) {
 
-    public Project(int id, String name, int leaderId, String part, int scale, String language, String framework, String content, String description, String url, Date startDate, Date endDate, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate) {
         this.id = id;
         this.name = name;
         this.leaderId = leaderId;
@@ -63,6 +67,10 @@ public class Project {
         this.createdDate = createdDate;
         this.lastModifiedBy = lastModifiedBy;
         this.lastModifiedDate = lastModifiedDate;
+        this.employeeLeader = employeeLeader;
+    }
+
+    public Project() {
     }
 
     public int getId() {
@@ -199,5 +207,13 @@ public class Project {
 
     public void setLastModifiedDate(Date lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public Employee getEmployeeLeader() {
+        return employeeLeader;
+    }
+
+    public void setEmployeeLeader(Employee employeeLeader) {
+        this.employeeLeader = employeeLeader;
     }
 }

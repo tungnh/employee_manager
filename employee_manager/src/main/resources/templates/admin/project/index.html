@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Employee | Danh sách chức vụ</title>
+    <title>Employee | Danh sách Du an </title>
 <body>
 <div class="content-page" layout:fragment="content">
     <div class="wrapper">
@@ -13,16 +13,16 @@
                 <div class="col-lg-12">
                     <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                         <div>
-                            <h4 class="mb-3">Position List</h4>
+                            <h4 class="mb-3">Project List</h4>
                             <p class="mb-0">Sales enables you to effectively control sales KPIs and <br>
                                 place while helping teams to reach sales goals. </p>
                         </div>
-                        <form th:action="@{/position/index}" method="get">
+                        <form th:action="@{/project/index}" method="get">
                             <input class="text search-input" type="text" name="search" placeholder="search here...">
                             <input class="btn btn-primary add-list" type="submit" value="Search">
                         </form>
-                        <a th:href="@{/position/add}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add
-                            Position</a>
+                        <a th:href="@{/project/add}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add
+                            Project</a>
                     </div>
                     <div class="col-lg-12">
                         <div class="table-responsive rounded mb-3">
@@ -31,35 +31,44 @@
                                 <tr class="ligth ligth-data">
                                     <th>Id</th>
                                     <th>Name</th>
+                                    <th>Leader</th>
+                                    <th>Part</th>
+                                    <th>Scale</th>
+                                    <th>Language</th>
+                                    <th>FrameWork</th>
+                                    <th>Content</th>
                                     <th>Description</th>
-                                    <th>CreatedBy</th>
-                                    <th>CreatedDate</th>
-                                    <th>LastModifiedBy</th>
-                                    <th>LastModifiedDate</th>
+                                    <th>URL</th>
+                                    <th> Start Date </th>
+                                    <th> End Date </th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody class="ligth-body">
-                                <tr th:each="pos: ${positionList}" th:object="${pos}">
+                                <tr th:each="pr: ${projectList}" th:object="${pr}">
                                     <td th:text="*{id}"></td>
                                     <td th:text="*{name}"></td>
+                                    <td th:text="*{leaderFirstName} + ' ' + *{leaderLastName}"></td>
+                                    <td th:text="*{part}"></td>
+                                    <td th:text="*{scale}"></td>
+                                    <td th:text="*{language}"></td>
+                                    <td th:text="*{framework}"></td>
+                                    <td th:text="*{content}"></td>
                                     <td th:text="*{description}"></td>
-                                    <td th:text="*{createdBy}"></td>
-                                    <td th:text="${#dates.format(pos.createdDate, 'yyyy-MM-dd')}"></td>
-                                    <td th:text="*{lastModifiedBy}"></td>
-                                    <td th:text="${#dates.format(pos.createdDate, 'yyyy-MM-dd')}"></td>
+                                    <td th:text="*{url}"></td>
+                                    <td th:text="${#dates.format(pr.startDate, 'yyyy-MM-dd')}"></td>
+                                    <td th:text="${#dates.format(pr.endDate, 'yyyy-MM-dd')}"></td>
                                     <td th:if="*{status == 1}"><span class="badge bg-primary">Active</span></td>
                                     <td th:if="*{status == 0}"><span class="badge bg-danger">Block</span>
                                     <td>
                                         <div class="d-flex align-items-center list-action">
-                                            <a th:href="@{/position/update/{id}(id=${pos.id})}"
+                                            <a th:href="@{/project/update/{id}(id=${pr.id})}"
                                                class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Edit"
                                                href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                            <a th:href="@{/position/delete/{id}(id=${pos.id})}"
-                                               onclick="return confirm('Bạn chắn chắn muốn xóa không')"
+                                            <a th:href="@{/project/delete/{id}(id=${pr.id})}" onclick="return confirm('Bạn chắn chắn muốn xóa không')"
                                                class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Delete"
@@ -79,13 +88,13 @@
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-end mb-0">
                                     <li class="page-item" th:classappend="${currentPage == 0 ? 'disabled' : ''}">
-                                        <a class="page-link" th:href="@{/position/index(page=*{currentPage - 1}, size=*{totalPages})}">&laquo;</a>
+                                        <a class="page-link" th:href="@{/project/index(page=*{currentPage - 1}, size=*{totalPages})}">&laquo;</a>
                                     </li>
                                     <li class="page-item" th:classappend="${page == currentPage ? 'active' : ''}" th:each="page : ${#numbers.sequence(0, totalPages - 1)}">
-                                        <a class="page-link" th:href="@{/position/index(page=*{page}, size=*{totalPages})}" th:text="${page + 1}"></a>
+                                        <a class="page-link" th:href="@{/project/index(page=*{page}, size=*{totalPages})}" th:text="${page + 1}"></a>
                                     </li>
                                     <li class="page-item" th:classappend="${currentPage == totalPages - 1 ? 'disabled' : ''}">
-                                        <a class="page-link" th:href="@{/position/index(page=*{currentPage + 1}, size=*{totalPages})}">&raquo;</a>
+                                        <a class="page-link" th:href="@{/project/index(page=*{currentPage + 1}, size=*{totalPages})}">&raquo;</a>
                                     </li>
                                 </ul>
                             </nav>

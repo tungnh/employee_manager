@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Employee manager | Sửa chức vụ</title>
+</head>
+<body>
+<div class="content-page" layout:fragment="content">
+    <div class="container-fluid add-form-list">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title"> + Edit Project</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form data-toggle="validator" th:action="@{/project/update}" method="post" role="form"
+                              th:object="${project}">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="1name">Name *</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Name"
+                                               data-errors="Please Enter Name." required id="1name" th:value="*{name}">
+                                        <div class="help-block with-errors"></div>
+                                        <input type="hidden" th:field="*{id}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="Leader">Leader </label>
+                                        <select id="Leader" name="employeesList" class="select picker form-control"
+                                                data-style="py-0">
+                                            <option th:each="dpm : ${employeeList}"
+                                                    th:value="${dpm.id}"
+                                                    th:text="${dpm.firstName}+ ' ' +${dpm.lastName}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="part">Part *</label>
+                                        <input type="text" name="description" class="form-control"
+                                               placeholder="Enter part"
+                                               data-errors="Please Enter Code." required id="part" th:field="*{part}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="scale">Scale *</label>
+                                        <input type="text" name="description" class="form-control"
+                                               placeholder="Enter scale"
+                                               data-errors="Please Enter Code." required id="scale" th:field="*{scale}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="language">Language *</label>
+                                        <select id="language" name="sex" th:field="*{language}"
+                                                class="select picker form-control" data-style="py-0">
+                                            <option value="Java">Java</option>
+                                            <option value="Java script">Java script</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="C++">C++</option>
+                                            <option value="Python">Python</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="framework">Framework *</label>
+                                        <input type="text" name="description" class="form-control"
+                                               placeholder="Enter framework"
+                                               data-errors="Please Enter Code." required id="framework"
+                                               th:field="*{framework}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="content">Content *</label>
+                                        <input type="text" name="description" class="form-control"
+                                               placeholder="Enter content"
+                                               data-errors="Please Enter Code." required id="content"
+                                               th:field="*{content}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="description1">Description *</label>
+                                        <input type="text" name="description" class="form-control"
+                                               placeholder="Enter Description"
+                                               data-errors="Please Enter Code." required id="description1"
+                                               th:field="*{description}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="url">Url *</label>
+                                        <input type="text" name="description" class="form-control"
+                                               placeholder="Enter url"
+                                               data-errors="Please Enter Code." required id="url" th:field="*{url}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="start">Start Date *</label>
+                                        <input type="date" name="description" class="form-control"
+                                               placeholder="Enter StartDate"
+                                               data-errors="Please Enter Code." required id="start"
+                                               th:field="*{startDate}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="end">EndDate *</label>
+                                        <input type="date" name="description" class="form-control"
+                                               placeholder="Enter EndDate"
+                                               data-errors="Please Enter Code." required id="end" th:field="*{endDate}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="sex">Status *</label>
+                                        <select id="sex" name="sex" th:field="*{status}"
+                                                class="select picker form-control" data-style="py-0">
+                                            <option value="1">Active</option>
+                                            <option value="0">Block</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Edit ...</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
