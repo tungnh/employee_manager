@@ -1,5 +1,7 @@
 package com.example.employee_manager.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -23,16 +25,20 @@ public class Certificate {
     @Column(name = "description")
     private String description;
     @Column(name = "issue_date")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date issueDate;
     @Column(name = "expiration_date")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date expirationDate;
     @Column(name = "created_by")
     private String createdBy;
     @Column(name = "created_date")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date createdDate;
     @Column(name = "last_modified_by")
     private String lastModifiedBy;
     @Column(name = "last_modified_date")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date lastModifiedDate;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id")

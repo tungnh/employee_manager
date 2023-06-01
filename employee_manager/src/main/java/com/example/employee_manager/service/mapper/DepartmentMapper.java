@@ -3,6 +3,7 @@ package com.example.employee_manager.service.mapper;
 import com.example.employee_manager.domain.Department;
 import com.example.employee_manager.service.dto.DepartmentDTO;
 import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,6 @@ public class DepartmentMapper implements EntityMapper<DepartmentDTO, Department>
             return null;
         }
         Department department = new Department();
-        department.setId(dto.getId());
         department.setName(dto.getName());
         department.setLeaderId(dto.getLeaderId());
         department.setParentId(dto.getParentId());
@@ -37,11 +37,6 @@ public class DepartmentMapper implements EntityMapper<DepartmentDTO, Department>
         departmentDTO.setParentId(entity.getParentId());
         departmentDTO.setSubLeaderId(entity.getSubLeaderId());
         departmentDTO.setDescription(entity.getDescription());
-        departmentDTO.setStatus(entity.getStatus());
-        departmentDTO.setCreatedBy(entity.getCreatedBy());
-        departmentDTO.setCreatedDate(entity.getCreatedDate());
-        departmentDTO.setLastModifiedBy(entity.getLastModifiedBy());
-        departmentDTO.setLastModifiedDate(entity.getLastModifiedDate());
         return departmentDTO;
     }
 
@@ -59,6 +54,7 @@ public class DepartmentMapper implements EntityMapper<DepartmentDTO, Department>
 
     @Override
     public List<DepartmentDTO> toDto(List<Department> entityList) {
+
         if (entityList == null) {
             return null;
         }
@@ -71,5 +67,6 @@ public class DepartmentMapper implements EntityMapper<DepartmentDTO, Department>
 
     @Override
     public void partialUpdate(Department entity, DepartmentDTO dto) {
+
     }
 }

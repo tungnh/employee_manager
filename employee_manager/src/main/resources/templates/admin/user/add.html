@@ -24,53 +24,53 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="userName">User Name:</label>
+                                            <label for="userName">User Name</label>
                                             <input th:field="*{userName}" type="text" class="form-control" id="userName" placeholder="User Name">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="firstName">First Name:</label>
+                                            <label for="firstName">First Name</label>
                                             <input th:field="*{firstName}" type="text" class="form-control" id="firstName" placeholder="First Name">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="lastName">Last Name:</label>
+                                            <label for="lastName">Last Name</label>
                                             <input th:field="*{lastName}" type="text" class="form-control" id="lastName" placeholder="Last Name">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="email">Email:</label>
+                                            <label for="email">Email</label>
                                             <input th:field="*{email}" type="text" class="form-control" id="email"
                                                    placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="phoneNumber">Phone Number:</label>
+                                            <label for="phoneNumber">Phone Number</label>
                                             <input th:field="*{phoneNumber}" type="text" class="form-control" id="phoneNumber"
                                                    placeholder="Phone Number">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="citzenId">Citizen ID:</label>
+                                            <label for="citzenId">Citizen ID</label>
                                             <input th:field="*{citizenId}" type="text" class="form-control" id="citzenId"
                                                    placeholder="Citizen ID">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="birthday">BirthDay:</label>
-                                            <input th:field="*{birthday}" type="text" class="form-control dateInput" id="birthday"
-                                                   placeholder="dd//mm/yyyy" >
+                                            <label for="birthday">BirthDay</label>
+                                            <input th:field="*{birthday}" type="date" class="form-control dateInput" id="birthday"
+                                                   placeholder="dd/mm/yyyy" >
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="sex">Sex:</label>
+                                            <label for="sex">Sex</label>
                                             <select id="sex" name="sex" th:field="*{sex}" class="select picker form-control" data-style="py-0">
                                                 <option value="0">Female</option>
                                                 <option value="1">Male</option>
@@ -79,71 +79,91 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="nationality">Nationality:</label>
+                                            <label for="nationality">Nationality</label>
                                             <input th:field="*{nationality}" type="text" class="form-control" id="nationality"
                                                    placeholder="Nationality">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="nation">Nation:</label>
+                                            <label for="nation">Nation</label>
                                             <input th:field="*{nation}" type="text" class="form-control" id="nation"
                                                    placeholder="Nation">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="issuedOn">Issued On:</label>
-                                            <input th:field="*{issuedOn}" type="text" class="form-control dateInput" id="issuedOn"
+                                            <label for="issuedOn">Issued On</label>
+                                            <input th:field="*{issuedOn}" type="date" class="form-control dateInput" id="issuedOn"
                                                    placeholder="dd/mm/yyyy">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="issueBy">Issued By:</label>
+                                            <label for="issueBy">Issued By</label>
                                             <input th:field="*{issueBy}" type="text" class="form-control" id="issueBy"
                                                    placeholder="Issued By">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="startWork">Start Work:</label>
-                                            <input th:field="*{startWork}" type="text" class="form-control dateInput" id="startWork"
+                                            <label for="startWork">Start Work</label>
+                                            <input th:field="*{startWork}" type="date" class="form-control dateInput" id="startWork"
                                                    placeholder="dd/mm/yyyy">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="endWork">End Work:</label>
-                                            <input th:field="*{endWork}" type="text" class="form-control dateInput" id="endWork"
+                                            <label for="endWork">End Work</label>
+                                            <input th:field="*{endWork}" type="date" class="form-control dateInput" id="endWork"
                                                    placeholder="dd/mm/yyyy">
 
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="coefficientsSalary">Coefficients Salary:</label>
+                                            <label for="coefficientsSalary">Coefficients Salary</label>
                                             <input th:field="*{coefficientsSalary}" type="number" step="0.01" class="form-control" id="coefficientsSalary"
                                                    placeholder="Coefficients Salary">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="education">Education:</label>
+                                            <label for="education">Education</label>
                                             <input th:field="*{education}" type="text" class="form-control" id="education"
                                                    placeholder="Education">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="address">Address:</label>
+                                            <label for="address">Address</label>
                                             <input th:field="*{address}" type="text" class="form-control" id="address"
                                                    placeholder="Address">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="role">Role:</label>
+                                            <label for="departmentId">Department</label>
+                                            <select th:field="*{departmentId}" id="departmentId" name="departmentId" class="select picker form-control" data-style="py-0">
+                                                    <option th:each="dpm : ${departmentList}"
+                                                            th:value="${dpm.id}"
+                                                            th:text="${dpm.name}"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="positionId">Position</label>
+                                            <select th:field="*{positionId}" id="positionId" name="departmentId" class="select picker form-control" data-style="py-0">
+                                                <option th:each="pst : ${positionList}"
+                                                        th:value="${pst.id}"
+                                                        th:text="${pst.name}"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="role">Role</label>
                                             <select id="role" name="sex" th:field="*{role}" class="select picker form-control" data-style="py-0">
                                                 <option value="ADMIN">ADMIN</option>
                                                 <option value="USER">USER</option>

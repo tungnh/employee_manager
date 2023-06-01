@@ -1,7 +1,7 @@
 package com.example.employee_manager.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class Employee {
     @Column(name = "citizen_id", unique = true)
     private String citzenId;
     @Column(name = "birthday")
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date birthday;
     @Column(name = "sex")
     private int sex;
@@ -40,14 +40,17 @@ public class Employee {
     @Column(name = "address")
     private String address;
     @Column(name = "issued_on")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date issuedOn;
     @Column(name = "issued_by")
     private String issueBy;
     @Column(name = "phone_number")
     private String phoneNumber;
     @Column(name = "start_work")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date startWork;
     @Column(name = "end_work")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date endWork;
     @Column(name = "coefficients_salary")
     private float coefficientsSalary;
@@ -62,10 +65,12 @@ public class Employee {
     @Column(name = "created_by")
     private String createdBy;
     @Column(name = "created_date")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date createdDate;
     @Column(name = "last_modified_by")
     private String lastModifiedBy;
     @Column(name = "last_modified_date")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date lastModifiedDate;
 
     @ManyToOne(fetch = FetchType.EAGER)
