@@ -22,12 +22,9 @@
                                 <div class="row justify-content-between">
                                     <div class="col-sm-12 col-md-12">
                                         <div id="user_list_datatable_info" class="dataTables_filter">
-                                            <form class="mr-3 position-relative">
-                                                <div class="form-group mb-0">
-                                                    <input type="search" class="form-control" id="exampleInputSearch"
-                                                           placeholder="Search"
-                                                           aria-controls="user-list-table">
-                                                </div>
+                                            <form th:action="@{/certificate/index}" method="get">
+                                                <input class="text search-input" type="text" name="search" placeholder="search here...">
+                                                <input class="btn btn-primary add-list" type="submit" value="Search">
                                             </form>
                                         </div>
                                     </div>

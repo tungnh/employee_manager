@@ -3,45 +3,92 @@
       layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Experience</title>
 </head>
 <body>
-<div class="wrapper" layout:fragment="content">
-    <div class="content-page">
+    <div class="content-page" layout:fragment="content">
         <div class="container-fluid add-form-list">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             <div class="header-title">
-                                <h4 class="card-title">Add Certificate</h4>
+                                <h4 class="card-title">Add Experience</h4>
                             </div>
                         </div>
                         <div class="card-body">
-                            <form th:action="@{/certificate/add}" method="post" th:object="${certificateAdd}" action="page-list-returns.html" data-toggle="validator">
+                            <form th:action="@{/experience/add}" method="post" th:object="${experienceAdd}" action="page-list-returns.html" data-toggle="validator">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="name">Name Certificate</label>
-                                            <input th:field="*{name}" id="name" type="text" class="form-control" placeholder="Name Certificate">
+                                            <label for="name">Name</label>
+                                            <input th:field="*{name}" id="name" type="text" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="issue">Issue Date</label>
-                                            <input th:field="*{issueDate}" id="issue" type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                            <label for="companyName">Company Name</label>
+                                            <input th:field="*{companyName}" id="companyName" type="text" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="exp">Description</label>
-                                            <input th:field="*{description}" id="exp" type="text" class="form-control" placeholder="description">
+                                            <label for="part">Part</label>
+                                            <input th:field="*{part}" id="part" type="text" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="exp">Expiration Date</label>
-                                            <input th:field="*{expirationDate}" id="exp" type="text" class="form-control" placeholder="dd/MM/yyyy">
+                                            <label for="scale">Scale</label>
+                                            <input th:field="*{scale}" id="scale" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="language">Language</label>
+                                            <input th:field="*{language}" id="language" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="framework">Framework</label>
+                                            <input th:field="*{framework}" id="framework" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="os">OS</label>
+                                            <input th:field="*{os}" id="os" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="start">Start Work</label>
+                                            <input th:field="*{startWork}" id="start" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="start">End Work</label>
+                                            <input th:field="*{endWork}" id="start" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="content">Content</label>
+                                            <input th:field="*{content}" id="content" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <input th:field="*{description}" id="description" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="url">Url</label>
+                                            <input th:field="*{url}" id="url" type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -57,7 +104,5 @@
             <!-- Page end  -->
         </div>
     </div>
-</div>
-
 </body>
 </html>
