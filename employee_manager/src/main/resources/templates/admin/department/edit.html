@@ -32,32 +32,32 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="parent">Parent *</label>
-                                        <input type="text" name="description" class="form-control"
-                                               placeholder="Enter Description"
-                                               data-errors="Please Enter Code." required id="parent"
-                                               th:field="*{parentId}">
-                                        <div class="help-block with-errors"></div>
+                                        <label for="Parent">Parent </label>
+                                        <select   id="Parent" name="employeeList" class="select picker form-control" data-style="py-0">
+                                            <option th:each="dpm : ${employeeList}"
+                                                    th:value="${dpm.id}"
+                                                    th:text="${dpm.firstName}+ ' ' +${dpm.lastName}"></option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="leader">Leader *</label>
-                                        <input type="text" name="description" class="form-control"
-                                               placeholder="Enter Description"
-                                               data-errors="Please Enter Code." required id="leader"
-                                               th:field="*{leaderId}">
-                                        <div class="help-block with-errors"></div>
+                                        <label for="Sub Leader ">Sub Leader  </label>
+                                        <select   id="Sub Leader " name="employeeList" class="select picker form-control" data-style="py-0">
+                                            <option th:each="dpm : ${employeeList}"
+                                                    th:value="${dpm.id}"
+                                                    th:text="${dpm.firstName}+ ' ' +${dpm.lastName}"></option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="sub">Sub Leader *</label>
-                                        <input type="text" name="description" class="form-control"
-                                               placeholder="Enter Description"
-                                               data-errors="Please Enter Code." required id="sub"
-                                               th:field="*{subLeaderId}">
-                                        <div class="help-block with-errors"></div>
+                                        <label for="Leader">Leader </label>
+                                        <select   id="Leader" name="employeeList" class="select picker form-control" data-style="py-0">
+                                            <option th:each="dpm : ${employeeList}"
+                                                    th:value="${dpm.id}"
+                                                    th:text="${dpm.firstName}+ ' ' +${dpm.lastName}"></option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

@@ -17,8 +17,8 @@
                             <p class="mb-0">Sales enables you to effectively control sales KPIs and                       <br>
                                 place while helping teams to reach sales goals. </p>
                         </div>
-                        <form th:action="@{/department/search}" method="get">
-                            <input class="text search-input" type="text" name="name" placeholder="search here...">
+                        <form th:action="@{/department/index}" method="get">
+                            <input class="text search-input" type="text" name="search" placeholder="search here...">
                             <input class="btn btn-primary add-list" type="submit" value="Search">
                         </form>
                         <a th:href="@{/department/add}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add
@@ -31,9 +31,6 @@
                                 <tr class="ligth ligth-data">
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <th>ParenId</th>
-                                    <th>LeaderId</th>
-                                    <th>SubLeader</th>
                                     <th>Description</th>
                                     <th>CreatedBy</th>
                                     <th>CreatedDate</th>
@@ -47,14 +44,11 @@
                                 <tr th:each="de: ${departmentList}" th:object="${de}">
                                     <td th:text="*{id}"></td>
                                     <td th:text="*{name}"></td>
-                                    <td th:text="*{parentId}"></td>
-                                    <td th:text="*{leaderId}"></td>
-                                    <td th:text="*{subLeaderId}"></td>
                                     <td th:text="*{description}"></td>
                                     <td th:text="*{createdBy}"></td>
-                                    <td th:text="*{createdDate}"></td>
+                                    <td th:text="${#dates.format(de.createdDate, 'yyyy-MM-dd')}"></td>
                                     <td th:text="*{lastModifiedBy}"></td>
-                                    <td th:text="*{lastModifiedDate}"></td>
+                                    <td th:text="${#dates.format(de.lastModifiedDate, 'yyyy-MM-dd')}"></td>
                                     <td th:if="*{status == 1}"><span class="badge bg-primary">Active</span></td>
                                     <td th:if="*{status == 0}"><span class="badge bg-danger">Block</span>
                                     <td>
@@ -77,19 +71,19 @@
                     </div>
                     <div class="row justify-content-between mt-3">
                         <div id="user-list-page-info" class="col-md-6">
-                            <span>Showing 1 to 5 of 5 entries</span>
+<!--                            <span>Showing 1 to 5 of 5 entries</span>-->
                         </div>
                         <div class="col-md-6">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-end mb-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                    <li class="page-item" th:classappend="${currentPage == 0 ? 'disabled' : ''}">
+                                        <a class="page-link" th:href="@{/department/index(page=*{currentPage - 1}, size=*{totalPages})}">&laquo;</a>
                                     </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Next</a>
+                                    <li class="page-item" th:classappend="${page == currentPage ? 'active' : ''}" th:each="page : ${#numbers.sequence(0, totalPages - 1)}">
+                                        <a class="page-link" th:href="@{/department/index(page=*{page}, size=*{totalPages})}" th:text="${page + 1}"></a>
+                                    </li>
+                                    <li class="page-item" th:classappend="${currentPage == totalPages - 1 ? 'disabled' : ''}">
+                                        <a class="page-link" th:href="@{/department/index(page=*{currentPage + 1}, size=*{totalPages})}">&raquo;</a>
                                     </li>
                                 </ul>
                             </nav>

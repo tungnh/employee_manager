@@ -87,6 +87,5 @@ public class ProjectMapper implements EntityMapper<ProjectDTO, Project> {
 
     @Override
     public void partialUpdate(Project entity, ProjectDTO dto) {
-
     }
 }

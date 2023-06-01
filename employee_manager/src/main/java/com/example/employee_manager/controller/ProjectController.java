@@ -1,11 +1,12 @@
 package com.example.employee_manager.controller;
 
+import com.example.employee_manager.domain.Employee;
+import com.example.employee_manager.service.EmployeeService;
 import com.example.employee_manager.service.ProjectService;
+import com.example.employee_manager.service.dto.EmployeeDTO;
 import com.example.employee_manager.service.dto.ProjectDTO;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,23 +19,26 @@ import java.util.Optional;
 @RequestMapping("/project")
 public class ProjectController {
     private final ProjectService projectService;
+    private final EmployeeService employeeService;
 
-    public ProjectController(ProjectService projectService) {
+    public ProjectController(ProjectService projectService, EmployeeService employeeService) {
         this.projectService = projectService;
+        this.employeeService = employeeService;
     }
 
     @GetMapping("/index")
-    public String getAll(Pageable pageable, @RequestParam(name = "name", required = false) String search, Model model) {
+    public String getAll(Pageable pageable, @RequestParam(name = "search", required = false) String search, Model model) {
         Page<ProjectDTO> projectDTOS = projectService.pageAll(search, pageable);
         model.addAttribute("totalPages", projectDTOS.getTotalPages());
-//        model.addAttribute("currentPage", pageable);
-//        model.addAttribute("pageSize", pageable);
+        model.addAttribute("currentPage", projectDTOS.getNumber());
         model.addAttribute("projectList", projectDTOS.getContent());
         return "admin/project/index";
     }
 
     @GetMapping("/add")
     public String add(Model model) {
+        List<EmployeeDTO> employeesList = employeeService.findAll();
+        model.addAttribute("employeeList", employeesList);
         model.addAttribute("project", new ProjectDTO());
         return "admin/project/add";
     }
@@ -58,6 +62,8 @@ public class ProjectController {
         Optional<ProjectDTO> projectDTO1 = projectService.findById(id);
         if (projectDTO1.isPresent()) {
             ProjectDTO projectDTO = projectDTO1.get();
+            List<EmployeeDTO> employeesList = employeeService.findAll();
+            model.addAttribute("employeeList", employeesList);
             model.addAttribute("project", projectDTO);
             return "admin/project/edit";
         }

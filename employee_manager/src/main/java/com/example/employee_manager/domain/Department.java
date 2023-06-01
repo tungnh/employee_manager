@@ -38,10 +38,8 @@ public class Department {
     @OneToMany(mappedBy = "department")
     @JsonIgnore
     private List<Employee> listEmployee = new ArrayList<>();
-
     public Department() {
     }
-
     public Department(int id, int parentId, int leaderId, int subLeaderId, String name, String description, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, List<Employee> listEmployee) {
         this.id = id;
         this.parentId = parentId;
@@ -56,7 +54,6 @@ public class Department {
         this.lastModifiedDate = lastModifiedDate;
         this.listEmployee = listEmployee;
     }
-
     public int getId() {
         return id;
     }

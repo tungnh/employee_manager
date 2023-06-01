@@ -7,6 +7,7 @@ import com.example.employee_manager.repository.PositionRepository;
 import com.example.employee_manager.service.PositionService;
 import com.example.employee_manager.service.dto.PositionDTO;
 import com.example.employee_manager.service.mapper.PositionMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -85,15 +86,13 @@ public class PositionServiceImpl implements PositionService {
     }
 
     @Override
-    public List<PositionDTO> searchByName(String name) {
-        return positionMapper.toDto(positionRepository.findByNameContaining(name));
+    public Page<PositionDTO> pageAll(String search, Pageable pageable) {
+        if (search == null || search.isEmpty()) {
+            return positionRepository.findAll(pageable).map(positionMapper::toDto);
+        } else {
+            return positionRepository.findByNameContaining(search, pageable).map(positionMapper::toDto);
+        }
     }
 
-    @Override
-    public List<PositionDTO> getPagingAndSort(int page) {
-        Sort.Order order;
-        order = new Sort.Order(Sort.Direction.DESC, "id");
-        Pageable pageable = PageRequest.of(page, 5, Sort.by(order));
-        return positionMapper.toDto(positionRepository.findAll(pageable).getContent());
-    }
+
 }

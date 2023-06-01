@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Employee manager | sửa chức vụ</title>
+    <title>Employee manager | Sửa chức vụ</title>
 </head>
 <body>
 <div class="content-page" layout:fragment="content">
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form data-toggle="validator" th:action="@{/project/update}" method="post"  role="form"
+                        <form data-toggle="validator" th:action="@{/project/update}" method="post" role="form"
                               th:object="${project}">
                             <div class="row">
                                 <div class="col-md-6">
@@ -32,12 +32,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="Leader">Leader Id *</label>
-                                        <input type="text" name="description" class="form-control"
-                                               placeholder="Enter leaderId"
-                                               data-errors="Please Enter Code." required id="Leader"
-                                               th:field="*{leaderId}">
-                                        <div class="help-block with-errors"></div>
+                                        <label for="Leader">Leader </label>
+                                        <select id="Leader" name="employeesList" class="select picker form-control"
+                                                data-style="py-0">
+                                            <option th:each="dpm : ${employeeList}"
+                                                    th:value="${dpm.id}"
+                                                    th:text="${dpm.firstName}+ ' ' +${dpm.lastName}"></option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -61,11 +62,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="language">Language *</label>
-                                        <input type="text" name="description" class="form-control"
-                                               placeholder="Enter language"
-                                               data-errors="Please Enter Code." required id="language"
-                                               th:field="*{language}">
-                                        <div class="help-block with-errors"></div>
+                                        <select id="language" name="sex" th:field="*{language}"
+                                                class="select picker form-control" data-style="py-0">
+                                            <option value="Java">Java</option>
+                                            <option value="Java script">Java script</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="C++">C++</option>
+                                            <option value="Python">Python</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -136,7 +140,6 @@
                                         </select>
                                     </div>
                                 </div>
-
                             </div>
                             <button type="submit" class="btn btn-danger">Edit ...</button>
                         </form>

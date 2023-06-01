@@ -32,12 +32,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="Leader">Leader Id *</label>
-                                        <input type="text" name="description" class="form-control"
-                                               placeholder="Enter leaderId"
-                                               data-errors="Please Enter Code." required id="Leader"
-                                               th:field="*{leaderId}">
-                                        <div class="help-block with-errors"></div>
+                                        <label for="Leader">Leader </label>
+                                        <select id="Leader" name="employeeList" class="select picker form-control"
+                                                data-style="py-0">
+                                            <option th:each="dpm : ${employeeList}"
+                                                    th:value="${dpm.id}"
+                                                    th:text="${dpm.firstName}+ ' ' +${dpm.lastName}"></option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

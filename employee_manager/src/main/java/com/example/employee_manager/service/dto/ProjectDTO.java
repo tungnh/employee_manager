@@ -2,7 +2,9 @@ package com.example.employee_manager.service.dto;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ProjectDTO {
     private int id;
@@ -25,8 +27,10 @@ public class ProjectDTO {
     private String lastModifiedBy;
     private Date lastModifiedDate;
 
-    public ProjectDTO(int id, String name, int leaderId, String part, int scale, String language, String framework, String content, String description, String url, Date startDate, Date endDate, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate) {
+    public ProjectDTO() {
+    }
 
+    public ProjectDTO(int id, String name, int leaderId, String part, int scale, String language, String framework, String content, String description, String url, Date startDate, Date endDate, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, List<Integer> employeeList) {
         this.id = id;
         this.name = name;
         this.leaderId = leaderId;
@@ -44,9 +48,6 @@ public class ProjectDTO {
         this.createdDate = createdDate;
         this.lastModifiedBy = lastModifiedBy;
         this.lastModifiedDate = lastModifiedDate;
-    }
-
-    public ProjectDTO() {
     }
 
     public int getId() {
@@ -184,4 +185,5 @@ public class ProjectDTO {
     public void setLastModifiedDate(Date lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
+
 }
