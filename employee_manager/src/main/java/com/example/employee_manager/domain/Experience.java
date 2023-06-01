@@ -24,7 +24,7 @@ public class Experience {
     @Column(name = "language")
     private String language;
     @Column(name = "framework")
-    private int framework;
+    private String framework;
     @Column(name = "os")
     private String os;
     @Column(name = "start_work")
@@ -53,7 +53,7 @@ public class Experience {
     public Experience() {
     }
 
-    public Experience(int id, String name, String companyName, String part, int scale, String language, int framework, String os, Date startWork, Date endWork, String content, String description, String url, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, Employee employee) {
+    public Experience(int id, String name, String companyName, String part, int scale, String language, String framework, String os, Date startWork, Date endWork, String content, String description, String url, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, Employee employee) {
         this.id = id;
         this.name = name;
         this.companyName = companyName;
@@ -122,11 +122,11 @@ public class Experience {
         this.language = language;
     }
 
-    public int getFramework() {
+    public String getFramework() {
         return framework;
     }
 
-    public void setFramework(int framework) {
+    public void setFramework(String framework) {
         this.framework = framework;
     }
 
