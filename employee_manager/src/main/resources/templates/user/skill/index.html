@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Skill List</title>
+</head>
+<body>
+    <div class="content-page" layout:fragment="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+                        <h4 class="card-title">Skill List</h4>
+                        <a th:href="@{/skill/add}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add Skill</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div class="row justify-content-between">
+                                <div class="col-sm-12 col-md-4">
+                                    <div id="user_list_datatable_info" class="dataTables_filter">
+                                        <form th:action="@{/skill/index}" method="get">
+                                            <input class="text search-input" type="text" name="search" placeholder="search here...">
+                                            <input class="btn btn-primary add-list" type="submit" value="Search">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="data-table table mb-0 tbl-server-info">
+                                <thead class="bg-white text-uppercase">
+                                <tr class="ligth ligth-data">
+                                    <th>Name</th>
+                                    <th>Level</th>
+                                    <th>Year</th>
+                                    <th>Self Assessment</th>
+                                    <th>External Assessment</th>
+                                    <th>Description</th>
+                                    <th style="min-width: 100px">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody class="ligth-body">
+                                <tr th:each="skill : ${skillList}">
+                                    <td th:text="${skill.name}"></td>
+                                    <td th:text="${skill.level}"></td>
+                                    <td th:text="${skill.year}+' year '+${skill.month}+' month'"></td>
+                                    <td th:text="${skill.selfAssessment}"></td>
+                                    <td th:text="${skill.externalAssessment}"></td>
+                                    <td th:text="${skill.description}"></td>
+                                    <td>
+                                        <div class="d-flex align-items-center list-action">
+                                            <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"
+                                               th:href="@{/skill/edit/{id}(id=${skill.id})}"><i class="ri-pencil-line mr-0"></i></a>
+                                            <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"
+                                               th:href="@{/skill/delete(id=${skill.id})}" onclick="return confirm('Are you sure you want to delete?')"><i class="ri-delete-bin-line mr-0"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row justify-content-between mt-3">
+                            <div id="user-list-page-info" class="col-md-6">
+                                <span>Showing 1 to 5 of 5 entries</span>
+                            </div>
+                            <div class="col-md-6">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-end mb-0">
+                                        <li class="page-item" th:classappend="${currentPage == 0 ? 'disabled' : ''}">
+                                            <a class="page-link" th:href="@{/skill/index(page=*{currentPage - 1}, size=*{currentPage})}">&laquo;</a>
+                                        </li>
+                                        <li class="page-item" th:classappend="${page == currentPage ? 'active' : ''}" th:each="page : ${#numbers.sequence(0, totalPages - 1)}">
+                                            <a class="page-link" th:href="@{/skill/index(page=*{page}, size=*{currentPage})}" th:text="${page + 1}"></a>
+                                        </li>
+                                        <li class="page-item" th:classappend="${currentPage == totalPages - 1 ? 'disabled' : ''}">
+                                            <a class="page-link" th:href="@{/skill/index(page=*{currentPage + 1}, size=*{currentPage})}">&raquo;</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

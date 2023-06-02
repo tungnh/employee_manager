@@ -61,6 +61,7 @@ public class EmployeeMapper implements EntityMapper<EmployeeDTO, Employee>{
         employeeDTO.setFirstName(entity.getFirstName());
         employeeDTO.setLastName(entity.getLastName());
         employeeDTO.setPassword(entity.getPassword());
+        employeeDTO.setImgUrl(entity.getImgUrl());
         employeeDTO.setEmail(entity.getEmail());
         employeeDTO.setPhoneNumber(entity.getPhoneNumber());
         employeeDTO.setCitizenId(entity.getCitzenId());
@@ -76,6 +77,10 @@ public class EmployeeMapper implements EntityMapper<EmployeeDTO, Employee>{
         employeeDTO.setCoefficientsSalary(entity.getCoefficientsSalary());
         employeeDTO.setEducation(entity.getEducation());
         employeeDTO.setRole(entity.getRole());
+        if (entity.getDepartment() != null) {
+            employeeDTO.setDepartmenName(entity.getDepartment().getName());
+            employeeDTO.setPositionName(entity.getPosition().getName());
+        }
 
         return employeeDTO;
     }

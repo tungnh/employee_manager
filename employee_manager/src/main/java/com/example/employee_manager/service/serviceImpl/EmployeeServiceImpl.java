@@ -1,9 +1,18 @@
 package com.example.employee_manager.service.serviceImpl;
 
+
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.employee_manager.domain.Certificate;
+import com.example.employee_manager.domain.Experience;
+import com.example.employee_manager.repository.*;
+import com.example.employee_manager.domain.Skill;
+import com.example.employee_manager.service.dto.EmployeeDTO;
+import com.example.employee_manager.domain.Employee;
+import com.example.employee_manager.service.EmployeeService;
+import com.example.employee_manager.service.mapper.EmployeeMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
@@ -11,14 +20,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import com.example.employee_manager.domain.Employee;
 import com.example.employee_manager.repository.CertificateRepository;
 import com.example.employee_manager.repository.DepartmentRepository;
 import com.example.employee_manager.repository.EmployeeRepository;
 import com.example.employee_manager.repository.PositionRepository;
-import com.example.employee_manager.service.EmployeeService;
-import com.example.employee_manager.service.dto.EmployeeDTO;
-import com.example.employee_manager.service.mapper.EmployeeMapper;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -27,13 +32,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final DepartmentRepository departmentRepository;
     private final PositionRepository positionRepository;
     private final CertificateRepository certificateRepository;
+    private final SkillRepository skillRepository;
+    private final ExperienceRepository experienceRepository;
 
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository, EmployeeMapper employeeMapper, DepartmentRepository departmentRepository, PositionRepository positionRepository, CertificateRepository certificateRepository) {
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, EmployeeMapper employeeMapper, DepartmentRepository departmentRepository, PositionRepository positionRepository, CertificateRepository certificateRepository, SkillRepository skillRepository, ExperienceRepository experienceRepository) {
         this.employeeRepository = employeeRepository;
         this.employeeMapper = employeeMapper;
         this.departmentRepository = departmentRepository;
         this.positionRepository = positionRepository;
         this.certificateRepository = certificateRepository;
+        this.skillRepository = skillRepository;
+        this.experienceRepository = experienceRepository;
     }
 
     @Override
@@ -97,7 +106,23 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<EmployeeDTO> findAll() {
-		// TODO Auto-generated method stub
 		return employeeMapper.toDto(employeeRepository.findAll());
 	}
+
+    @Override
+    public List<Skill> getSkillByEmployeeId(int id) {
+        return skillRepository.findByEmployeeId(id);
+    }
+
+    @Override
+    public List<Certificate> getCertificateByEmployeeId(int id) {
+        return certificateRepository.findByEmployeeId(id);
+    }
+
+    @Override
+    public List<Experience> getExceptionByEmployeeId(int id) {
+        return experienceRepository.findByEmployeeId(id);
+    }
+
 }
+

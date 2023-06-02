@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="content-page" layout:fragment="content">
+        <div class="container-fluid add-form-list">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="header-title">
+                                <h4 class="card-title">Edit Skill</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/skill/edit}" method="post" th:object="${editSkill}">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input th:field="*{id}" type="hidden" class="form-control" id="id" readonly>
+                                            <label for="name">Name</label>
+                                            <input th:field="*{name}" id="name" type="text" class="form-control" placeholder="Name Certificate">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="level">Level</label>
+                                            <input th:field="*{level}" id="level" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="year">Year</label>
+                                            <input th:field="*{year}" id="year" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="month">Month</label>
+                                            <input th:field="*{month}" id="month" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="self">Self Assessment</label>
+                                            <input th:field="*{selfAssessment}" id="self" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exter">External Assessment</label>
+                                            <input th:field="*{externalAssessment}" id="exter" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="exp">Description</label>
+                                            <input th:field="*{description}" id="exp" type="text" class="form-control" placeholder="description">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                    <button type="reset" class="btn iq-bg-danger">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page end  -->
+        </div>
+    </div>
+</body>
+</html>

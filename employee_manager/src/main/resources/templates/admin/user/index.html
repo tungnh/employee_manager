@@ -22,7 +22,7 @@
                                 <div class="row justify-content-between">
                                     <div class="col-sm-12 col-md-12">
                                         <div id="user_list_datatable_info" class="dataTables_filter">
-                                            <form th:action="@{/certificate/index}" method="get">
+                                            <form th:action="@{/employee/index}" method="get">
                                                 <input class="text search-input" type="text" name="search" placeholder="search here...">
                                                 <input class="btn btn-primary add-list" type="submit" value="Search">
                                             </form>
@@ -44,7 +44,7 @@
                                     <tr th:each="user : ${employeeList}">
                                         <td class="text-center">
                                             <div class="d-flex align-items-center">
-                                                <img src="/assets/images/table/product/01.jpg" class="img-fluid rounded avatar-50 mr-3" alt="image">
+                                                <img th:src="@{'/' + ${user.imgUrl}}" class="img-fluid rounded avatar-50 mr-3" alt="image">
                                                 <div th:text="${user.firstName} + ' ' + ${user.lastName}">
                                                 </div>
                                             </div>
@@ -72,7 +72,7 @@
                             </div>
                             <div class="row justify-content-between mt-3">
                                 <div id="user-list-page-info" class="col-md-6">
-                                    <span>Showing 1 to 5 of 5 entries</span>
+
                                 </div>
                                 <div class="col-md-6">
                                     <nav aria-label="Page navigation example">

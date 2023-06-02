@@ -14,8 +14,6 @@
                     <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
                         <div>
                             <h4 class="mb-3">Project List</h4>
-                            <p class="mb-0">Sales enables you to effectively control sales KPIs and <br>
-                                place while helping teams to reach sales goals. </p>
                         </div>
                         <form th:action="@{/project/index}" method="get">
                             <input class="text search-input" type="text" name="search" placeholder="search here...">
@@ -57,8 +55,8 @@
                                     <td th:text="*{content}"></td>
                                     <td th:text="*{description}"></td>
                                     <td th:text="*{url}"></td>
-                                    <td th:text="${#dates.format(pr.startDate, 'yyyy-MM-dd')}"></td>
-                                    <td th:text="${#dates.format(pr.endDate, 'yyyy-MM-dd')}"></td>
+                                    <td th:text="${#dates.format(pr.startDate, 'dd-MM-yyyy')}"></td>
+                                    <td th:text="${#dates.format(pr.endDate, 'dd-MM-yyyy')}"></td>
                                     <td th:if="*{status == 1}"><span class="badge bg-primary">Active</span></td>
                                     <td th:if="*{status == 0}"><span class="badge bg-danger">Block</span>
                                     <td>

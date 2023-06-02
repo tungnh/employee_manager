@@ -45,10 +45,12 @@ public class EmployeeDTO {
     private List<Integer> certificateId;
     private List<Integer> experienceId;
     private List<Integer> skillId;
+    private String departmenName;
+    private String positionName;
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(int id, String userName, String firstName, String lastName, String imgUrl, String password, String email, String citizenId, Date birthday, int sex, String nationality, String nation, String address, Date issuedOn, String issueBy, String phoneNumber, Date startWork, Date endWork, float coefficientsSalary, String education, String role, String accessToken, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, int departmentId, int positionId, List<Integer> certificateId, List<Integer> experienceId, List<Integer> skillId) {
+    public EmployeeDTO(int id, String userName, String firstName, String lastName, String imgUrl, String password, String email, String citizenId, Date birthday, int sex, String nationality, String nation, String address, Date issuedOn, String issueBy, String phoneNumber, Date startWork, Date endWork, float coefficientsSalary, String education, String role, String accessToken, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, int departmentId, int positionId, List<Integer> certificateId, List<Integer> experienceId, List<Integer> skillId, String departmenName, String positionName) {
         this.id = id;
         this.userName = userName;
         this.firstName = firstName;
@@ -81,6 +83,8 @@ public class EmployeeDTO {
         this.certificateId = certificateId;
         this.experienceId = experienceId;
         this.skillId = skillId;
+        this.departmenName = departmenName;
+        this.positionName = positionName;
     }
 
     public int getId() {
@@ -337,5 +341,21 @@ public class EmployeeDTO {
 
     public void setSkillId(List<Integer> skillId) {
         this.skillId = skillId;
+    }
+
+    public String getDepartmenName() {
+        return departmenName;
+    }
+
+    public void setDepartmenName(String departmenName) {
+        this.departmenName = departmenName;
+    }
+
+    public String getPositionName() {
+        return positionName;
+    }
+
+    public void setPositionName(String positionName) {
+        this.positionName = positionName;
     }
 }
